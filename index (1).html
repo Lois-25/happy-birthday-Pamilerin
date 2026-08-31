@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday, My Air Lord 👑❤️</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      background: #090d16;
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Portal Overlay Container */
+    .portal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #1e293b 0%, #090d16 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    .portal-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      padding: 1.8rem 1.2rem;
+      max-width: 550px;
+      width: 100%;
+      text-align: center;
+      max-height: 90vh;
+      overflow-y: auto;
+      margin: auto;
+    }
+
+    .portal-badge {
+      font-size: clamp(0.65rem, 2vw, 0.75rem);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #70a1ff;
+      background: rgba(112, 161, 255, 0.12);
+      padding: 0.4rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(112, 161, 255, 0.3);
+    }
+
+    .portal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: #f8fafc;
+    }
+
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 0.85rem 3.2rem 0.85rem 1rem;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 182, 193, 0.3);
+      background: rgba(0, 0, 0, 0.3);
+      color: #ffffff;
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      text-align: center;
+      letter-spacing: 1px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #ffb6c1;
+      box-shadow: 0 0 12px rgba(255, 182, 193, 0.3);
+    }
+
+    .toggle-eye {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 1.2rem;
+      user-select: none;
+      opacity: 0.85;
+      padding: 0.2rem;
+    }
+
+    .action-btn {
+      background: linear-gradient(135deg, #c8102e 0%, #d00027 100%);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s;
+      min-height: 44px;
+      box-shadow: 0 4px 15px rgba(200, 16, 46, 0.4);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .action-btn:active {
+      transform: scale(0.98);
+    }
+
+    .action-btn:disabled {
+      background: rgba(255, 255, 255, 0.15);
+      color: #777;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .vip-btn {
+      background: linear-gradient(135deg, #70a1ff 0%, #1e90ff 100%) !important;
+      color: #fff !important;
+      margin-bottom: 0.5rem;
+    }
+
+    .vip-next-btn {
+      background: linear-gradient(135deg, #2ed573 0%, #10ac84 100%) !important;
+      color: #fff !important;
+      margin-bottom: 0.5rem;
+    }
+
+    .error-msg {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.4rem;
+      margin: 1rem 0;
+    }
+
+    .time-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 0.1rem;
+      border-radius: 10px;
+    }
+
+    .time-box span {
+      font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+      font-weight: 700;
+      color: #f6eb61;
+      display: block;
+    }
+
+    .time-box p {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .calendar-container {
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+      gap: 0.4rem;
+      max-height: 180px;
+      overflow-y: auto;
+      padding: 0.4rem;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .calendar-day {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 0.3rem 0.1rem;
+      font-size: 0.65rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .calendar-day.today {
+      border-color: #f6eb61;
+      background: rgba(246, 235, 97, 0.1);
+    }
+
+    .check-box {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+
+    .check-box.checked {
+      background: rgba(46, 213, 115, 0.2);
+      border-color: #2ed573;
+      color: #2ed573;
+    }
+
+    .check-box.missed {
+      background: rgba(255, 71, 87, 0.2);
+      border-color: #ff4757;
+      color: #ff4757;
+    }
+
+    .daily-msg-box {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(246, 235, 97, 0.3);
+      border-radius: 12px;
+      padding: 0.8rem;
+      margin-top: 0.8rem;
+      font-size: clamp(0.78rem, 2.5vw, 0.85rem);
+      line-height: 1.45;
+      color: #ffeedd;
+      font-family: 'Georgia', serif;
+      text-align: left;
+    }
+
+    .vip-panel {
+      background: rgba(112, 161, 255, 0.1);
+      border: 1px solid rgba(112, 161, 255, 0.4);
+      border-radius: 12px;
+      padding: 0.7rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PORTAL OVERLAY ==================== -->
+  <div id="entrancePortal" class="portal-overlay">
+    
+    <!-- 1. LOGIN CARD -->
+    <div id="passwordBox" class="portal-card">
+      <span class="portal-badge">SECURITY CLEARANCE REQUIRED 🔒</span>
+      <h2 class="portal-title">Access Your Special Gift, My Air Lord 👑</h2>
+      
+      <div class="input-wrapper">
+        <input type="password" id="passcodeInput" placeholder="Enter Security Code..." autocomplete="off" />
+        <span class="toggle-eye" id="toggleEye" onclick="togglePasswordVisibility()">👁️</span>
+      </div>
+
+      <button class="action-btn" onclick="checkPasscode()">ACCESS TERMINAL 🔓</button>
+      <p id="errorMessage" class="error-msg hidden">Access Denied: Invalid Security Clearance Code (Case-Sensitive) ❌</p>
+    </div>
+
+    <!-- 2. DASHBOARD TERMINAL -->
+    <div id="dashboardBox" class="portal-card hidden">
+      <span class="portal-badge" id="portalBadge">COMMAND CENTER 🎖️</span>
+      <h2 class="portal-title" id="welcomeHeader">Welcome, My Air Lord 👑</h2>
+
+      <!-- VIP Inspector Panel -->
+      <div id="vipInspectorPanel" class="vip-panel hidden">
+        <p style="color: #70a1ff; font-weight: bold; margin-bottom: 0.3rem;">👑 QUEEN LOIS VIP INSPECTION CONTROL</p>
+        <p style="margin-bottom: 0.5rem; color: #cbd5e1;">Test & step through countdown dates:</p>
+        
+        <button class="action-btn vip-next-btn" onclick="advanceToNextDay()">
+          ADVANCE TO NEXT DAY ⏩
+        </button>
+
+        <button class="action-btn vip-btn" onclick="openMainPage()">
+          BYPASS LOCK & OPEN MAIN WEBSITE 🚀
+        </button>
+      </div>
+
+      <!-- Live Countdown -->
+      <div class="countdown-grid">
+        <div class="time-box"><span id="days">00</span><p>Days</p></div>
+        <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
+        <div class="time-box"><span id="minutes">00</span><p>Minutes</p></div>
+        <div class="time-box"><span id="seconds">00</span><p>Seconds</p></div>
+      </div>
+
+      <!-- Calendar & Check-in Grid -->
+      <div class="calendar-container">
+        <p style="font-size: 0.75rem; color: #70a1ff; margin-bottom: 0.5rem; font-weight: 600;">
+          DAILY ATTENDANCE LOG (AUG 12 - SEP 17)
+        </p>
+        
+        <div class="calendar-grid" id="calendarGrid"></div>
+
+        <button id="checkInBtn" class="action-btn" style="margin-top: 0.8rem;" onclick="markTodayAttendance()">
+          Check In Today ✍️❤️
+        </button>
+
+        <div id="dailyMsgCard" class="daily-msg-box hidden">
+          <span style="display: block; font-size: 0.65rem; color: #f6eb61; font-weight: bold; margin-bottom: 0.3rem;" id="msgCardDateHeader"></span>
+          <p id="dailyMsgText"></p>
+        </div>
+      </div>
+
+      <!-- Main Website External Link Button -->
+      <button id="enterWebsiteBtn" class="action-btn hidden" style="margin-top: 1rem;" onclick="openMainPage()">
+        OPEN YOUR BIRTHDAY SURPRISE WEBSITE 🎉✨
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    const PASSCODES = {
+      MAIN: "AIRLORD2517",
+      VIP: "AYEBIDUN-VIP"
+    };
+
+    // Target Date configured in WAT (UTC+1)
+    const targetDate = new Date('2026-09-17T00:00:00+01:00').getTime();
+    
+    // Live Server/Nigeria Time Tracking State
+    let currentDateNigeria = new Date();
+    let timeOffsetMs = 0;
+
+    const dailyMessages = {
+      "2026-08-12": "Good morning, my Air Lord! 👑 Day 1 of our official birthday countdown starts today. Just a gentle reminder that you are my favorite part of every single day. I love you!",
+      "2026-08-13": "To my favorite officer: 🎖️ You carry so much strength and grace in everything you do. Counting down every second until we celebrate you!",
+      "2026-08-14": "Happy Friday, my love! Like Cristiano Ronaldo in prime form, you strive for excellence in all you do—and I’m forever your biggest cheerleader. ⚽🔥",
+      "2026-08-15": "Attendance check-in verified! ✍️❤️ You bring so much peace and stability into my life. Thank you for being my safe space.",
+      "2026-08-16": "Match day energy today! 🔴 You Will Never Walk Alone because I'll always be right here in your corner, loving you through every season.",
+      "2026-08-17": "One day closer to September 17th! ✈️ You are loved, cherished, appreciated, and deeply valued, my officer.",
+      "2026-08-18": "Good morning, my Air Lord! Just in case nobody told you today: I am so proud of the man you are and the officer you are becoming.",
+      "2026-08-19": "Mid-week duty report: You hold total clearance to my heart. Always and forever. 🔒❤️",
+      "2026-08-20": "Counting down the days to celebrate the king of my heart. Thank you for your daily kindness and strength.",
+      "2026-08-21": "Weekend operational briefing: My favorite assignment in this life is loving you. Have a smooth day ahead, my love! 🎖️",
+      "2026-08-22": "Saturdays are for relaxing, but my heart never takes a day off from loving you, my Air Lord.",
+      "2026-08-23": "SIUUU! ⚽ Taking a moment today to celebrate the goat in my life—YOU! Hope today brings you as much joy as you give me.",
+      "2026-08-24": "New week, same rule: You remain my top priority, my officer. Go conquer today!",
+      "2026-08-25": "Check-in complete! ✍️ If I had to choose again in another lifetime, I would choose you every single time without thinking twice.",
+      "2026-08-26": "22 days until your big day! The countdown is getting real, my love. Keep soaring high! ✈️👑",
+      "2026-08-27": "To my peaceful anchor in a busy world: Thank you for treating me with so much care and love.",
+      "2026-08-28": "Friday mood unlocked! Sending you a tight virtual hug and extra love for today’s duties. 💖",
+      "2026-08-29": "Another day ticked on the calendar! Every single day with you feels like a blessing, my Air Lord.",
+      "2026-08-30": "Sunday calm with my favorite human. Rest well today, my officer—you deserve all the comfort in the world.",
+      "2026-08-31": "Last day of August! Next stop: YOUR BIRTHDAY MONTH! 🎉 Get ready, my love!",
+      "2026-09-01": "WELCOME TO SEPTEMBER! 🥳 The month of the legendary Air Lord! Countdown is officially in single digits and counting!",
+      "2026-09-02": "15 days to go! The entire airspace is clear for your celebration. I love you more each passing day!",
+      "2026-09-03": "Daily duty check: You are doing an amazing job, my love. Keep shining and standing tall!",
+      "2026-09-04": "To the man with the heart of a champion and the soul of a leader: Happy countdown Friday! 🏆",
+      "2026-09-05": "Weekend check-in verified! ✍️❤️ Hope your day is as smooth and peaceful as your smile.",
+      "2026-09-06": "You Will Never Walk Alone—today, tomorrow, and for all the years ahead. Happy Sunday, my love! 🔴",
+      "2026-09-07": "10 DAYS LEFT! ⏳ The final 10-day countdown begins now! Something special is waiting for you...",
+      "2026-09-08": "9 days! To my mentor, my partner, and my best friend: I adore you!",
+      "2026-09-09": "8 days! Standard military discipline, but when it comes to loving you, I lose all my composure! 😘",
+      "2026-09-10": "7 days to go—exactly one week! I can't wait for you to see what’s loaded behind this portal!",
+      "2026-09-11": "6 days left! Sending you strength, focus, and all my love for today's duties, my Air Lord.",
+      "2026-09-12": "5 days! The excitement is officially off the charts! 📈❤️",
+      "2026-09-13": "4 days left! Countdown in full force. You are everything I prayed for and more.",
+      "2026-09-14": "3 days to go! Final pre-flight preparations for the big day! ✈️👑",
+      "2026-09-15": "2 DAYS LEFT! The final countdown is here! I hope your heart is ready!",
+      "2026-09-16": "TOMORROW IS THE DAY! 🚨 T-minus 24 hours! Rest well tonight, my officer... the wait is almost over!",
+      "2026-09-17": "HAPPY BIRTHDAY, MY AIR LORD! 👑🥳🎉 The portal is fully unlocked! Click below to access your full birthday surprise!"
+    };
+
+    const passcodeInput = document.getElementById('passcodeInput');
+
+    // Sync current time with Nigerian Region (Africa/Lagos)
+    async function syncNigerianTime() {
+      try {
+        const response = await fetch('https://worldtimeapi.org/api/timezone/Africa/Lagos');
+        const data = await response.json();
+        const networkTime = new Date(data.datetime).getTime();
+        timeOffsetMs = networkTime - Date.now();
+      } catch (err) {
+        console.warn("Time sync API unreachable, falling back to local time with UTC+1 calculations.");
+        const now = new Date();
+        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        timeOffsetMs = (utc + (3600000 * 1)) - Date.now();
+      }
+      getNigerianNow();
+    }
+
+    function getNigerianNow() {
+      currentDateNigeria = new Date(Date.now() + timeOffsetMs);
+      return currentDateNigeria;
+    }
+
+    function togglePasswordVisibility() {
+      const eyeIcon = document.getElementById('toggleEye');
+      if (passcodeInput.type === 'password') {
+        passcodeInput.type = 'text';
+        eyeIcon.innerText = '🙈';
+      } else {
+        passcodeInput.type = 'password';
+        eyeIcon.innerText = '👁️';
+      }
+    }
+
+    function checkPasscode() {
+      const input = passcodeInput.value.trim();
+
+      if (input === PASSCODES.MAIN || input === PASSCODES.VIP) {
+        document.getElementById('errorMessage').classList.add('hidden');
+
+        if (input === PASSCODES.VIP) {
+          document.getElementById('welcomeHeader').innerText = "Welcome, Queen Lois 👑✨";
+          document.getElementById('portalBadge').innerText = "VIP ADMIN ACCESS 🔑";
+          document.getElementById('vipInspectorPanel').classList.remove('hidden');
+        }
+
+        buildCalendar();
+        document.getElementById('passwordBox').classList.add('hidden');
+        document.getElementById('dashboardBox').classList.remove('hidden');
+      } else {
+        document.getElementById('errorMessage').classList.remove('hidden');
+        passcodeInput.value = '';
+      }
+    }
+
+    function formatDateKey(dateObj) {
+      const y = dateObj.getFullYear();
+      const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+      const d = String(dateObj.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    function buildCalendar() {
+      const grid = document.getElementById('calendarGrid');
+      grid.innerHTML = '';
+
+      const now = getNigerianNow();
+      const todayKey = formatDateKey(now);
+
+      const startDate = new Date(2026, 7, 12);
+      const endDate = new Date(2026, 8, 17);
+
+      let current = new Date(startDate);
+
+      while (current <= endDate) {
+        const key = formatDateKey(current);
+        const dayNum = current.getDate();
+        const monthName = current.toLocaleDateString('en-US', { month: 'short' });
+
+        const isToday = key === todayKey;
+        const isPast = current < new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        const dayCard = document.createElement('div');
+        dayCard.className = `calendar-day ${isToday ? 'today' : ''}`;
+
+        const savedState = localStorage.getItem(`checkin_${key}`);
+
+        let statusSymbol = '';
+        let statusClass = '';
+
+        // Past days are ONLY marked checked if explicitly clicked; otherwise missed
+        if (savedState === 'checked') {
+          statusSymbol = '✓';
+          statusClass = 'checked';
+        } else if (isPast) {
+          statusSymbol = '✕';
+          statusClass = 'missed';
+        }
+
+        dayCard.innerHTML = `
+          <span>${monthName} ${dayNum}</span>
+          <div class="check-box ${statusClass}">${statusSymbol}</div>
+        `;
+
+        grid.appendChild(dayCard);
+        current.setDate(current.getDate() + 1);
+      }
+
+      const checkInBtn = document.getElementById('checkInBtn');
+      if (localStorage.getItem(`checkin_${todayKey}`) === 'checked') {
+        checkInBtn.innerText = "Checked In Today ✓";
+        checkInBtn.disabled = true;
+        checkInBtn.style.opacity = "0.6";
+
+        showDailyMessage(todayKey);
+      } else {
+        checkInBtn.innerText = "Check In Today ✍️❤️";
+        checkInBtn.disabled = false;
+        checkInBtn.style.opacity = "1";
+        document.getElementById('dailyMsgCard').classList.add('hidden');
+      }
+    }
+
+    function markTodayAttendance() {
+      const todayKey = formatDateKey(getNigerianNow());
+      localStorage.setItem(`checkin_${todayKey}`, 'checked');
+      
+      buildCalendar();
+      showDailyMessage(todayKey);
+    }
+
+    function advanceToNextDay() {
+      // Advance network time offset by exactly 24 hours
+      timeOffsetMs += 24 * 60 * 60 * 1000;
+      
+      // Re-render grid with the new simulated date
+      buildCalendar();
+      updateCountdown();
+    }
+
+    function showDailyMessage(key) {
+      const message = dailyMessages[key] || "You are loved and cherished today, my Air Lord! ❤️";
+      document.getElementById('msgCardDateHeader').innerText = `CHECK-IN VERIFIED FOR ${key}`;
+      document.getElementById('dailyMsgText').innerText = message;
+      document.getElementById('dailyMsgCard').classList.remove('hidden');
+    }
+
+    function updateCountdown() {
+      const now = getNigerianNow().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('minutes').innerText = '00';
+        document.getElementById('seconds').innerText = '00';
+        
+        document.getElementById('enterWebsiteBtn').classList.remove('hidden');
+      } else {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+      }
+    }
+
+    function openMainPage() {
+      window.location.href = "main.html";
+    }
+
+    passcodeInput?.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') checkPasscode();
+    });
+
+    // Initialize synchronization and continuous countdown
+    syncNigerianTime().then(() => {
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    });
+  </script>
+</body>
+</html>
