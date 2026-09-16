@@ -1,0 +1,3251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:image" content="Preview.jpg">
+    <title>Happy Birthday Adedapo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        :root {
+            --gold: #FFD700;
+            --gold-light: #FFF099;
+            --text-light: #FFFFFF;
+            --glass-bg: rgba(6, 10, 24, 0.55); 
+            --glass-border: rgba(255, 215, 0, 0.3);
+            --military-blue: #38BDF8;
+            --liverpool-red: #E50914;
+            --cr7-teal: #00F2FE;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #02040A;
+            color: var(--text-light);
+        }
+
+        /* FALLING HEARTS FROM SKY */
+        .sky-hearts-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden; pointer-events: none; z-index: 1;
+        }
+
+        .falling-heart {
+            position: absolute; top: -30px; font-size: 1.4rem;
+            animation: fallFromSky 4.5s linear forwards;
+            opacity: 0.9; filter: drop-shadow(0 0 8px rgba(255, 77, 109, 0.8));
+        }
+
+        @keyframes fallFromSky {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg) scale(1.3); opacity: 0.2; }
+        }
+
+        /* HORIZONTAL SLIDER CONTAINER (2400vw FOR 24 SCREENS) */
+        .slider-container {
+            display: flex; 
+            flex-direction: row;
+            width: 2400vw; 
+            height: 100vh;
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+
+        .screen-view {
+            width: 100vw; 
+            min-width: 100vw;
+            height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            padding: 24px 18px 85px 18px;
+            position: relative; background-size: cover;
+            background-position: center; background-repeat: no-repeat;
+        }
+
+        /* BACKGROUND WALLPAPERS */
+        #screen-1 { background-image: linear-gradient(rgba(2, 5, 15, 0.5), rgba(2, 5, 15, 0.8)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-2 { background-image: linear-gradient(rgba(15, 2, 20, 0.5), rgba(15, 2, 20, 0.8)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-3 { background-image: linear-gradient(rgba(10, 8, 20, 0.5), rgba(10, 8, 20, 0.8)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-4 { background-image: linear-gradient(rgba(8, 12, 35, 0.5), rgba(8, 12, 35, 0.8)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-5 { background-image: linear-gradient(rgba(25, 8, 18, 0.5), rgba(25, 8, 18, 0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-6 { background-image: linear-gradient(rgba(18, 10, 5, 0.5), rgba(18, 10, 5, 0.8)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-7 { background-image: linear-gradient(rgba(15, 10, 25, 0.5), rgba(15, 10, 25, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-8 { background-image: linear-gradient(rgba(2, 15, 30, 0.5), rgba(2, 15, 30, 0.8)), url('https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-9 { background-image: linear-gradient(rgba(25, 10, 15, 0.5), rgba(25, 10, 15, 0.8)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-10 { background-image: linear-gradient(rgba(20, 15, 5, 0.5), rgba(20, 15, 5, 0.8)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-11 { background-image: linear-gradient(rgba(10, 15, 25, 0.5), rgba(10, 15, 25, 0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-12 { background-image: linear-gradient(rgba(30, 5, 10, 0.5), rgba(30, 5, 10, 0.8)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-13 { background-image: linear-gradient(rgba(15, 8, 25, 0.5), rgba(15, 8, 25, 0.8)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-14 { background-image: linear-gradient(rgba(25, 5, 15, 0.5), rgba(25, 5, 15, 0.8)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-15 { background-image: linear-gradient(rgba(20, 0, 5, 0.65), rgba(5, 0, 10, 0.85)), url('liverpool.jpg'); }
+        #screen-16 { background-image: linear-gradient(rgba(15, 8, 25, 0.5), rgba(15, 8, 25, 0.8)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-17 { background-image: linear-gradient(rgba(0, 15, 25, 0.65), rgba(5, 5, 15, 0.85)), url('cr7.jpg'); }
+        #screen-18 { background-image: linear-gradient(rgba(0, 10, 20, 0.15), rgba(2, 5, 15, 0.3)), url('cr7.jpg'); }
+        #screen-19 { background-image: linear-gradient(rgba(18, 10, 5, 0.5), rgba(18, 10, 5, 0.8)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-20 { background-image: linear-gradient(rgba(25, 8, 18, 0.5), rgba(25, 8, 18, 0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-21 { background-image: linear-gradient(rgba(8, 12, 35, 0.5), rgba(8, 12, 35, 0.8)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-22 { background-image: linear-gradient(rgba(15, 10, 25, 0.5), rgba(15, 10, 25, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-23 { background-image: linear-gradient(rgba(10, 5, 20, 0.6), rgba(5, 2, 10, 0.85)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80'); }
+        #screen-24 { background-image: linear-gradient(rgba(25, 5, 15, 0.55), rgba(25, 5, 15, 0.85)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80'); }
+
+        .glass-card {
+            background: var(--glass-bg); 
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border-radius: 24px; padding: 24px 18px; 
+            width: 100%; max-width: 420px; max-height: 84vh; 
+            overflow-y: auto; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            text-align: center; z-index: 2;
+            display: flex; flex-direction: column; justify-content: space-between;
+            touch-action: pan-y !important; -webkit-overflow-scrolling: touch;
+            position: relative;
+        }
+
+        .pet-name-header {
+            display: inline-block; padding: 6px 16px; border-radius: 30px;
+            background: rgba(255, 215, 0, 0.18); border: 1px solid var(--gold);
+            color: var(--gold-light); font-size: 0.85rem; font-weight: 800;
+            letter-spacing: 1.2px; margin-bottom: 12px;
+        }
+
+        .pet-cluster {
+            display: flex; flex-wrap: wrap; gap: 6px;
+            justify-content: center; margin-top: 14px;
+        }
+
+        .pet-tag {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 215, 0, 0.35);
+            padding: 5px 10px; border-radius: 18px;
+            font-size: 0.7rem; color: var(--gold-light); font-weight: 600;
+        }
+
+        .badge {
+            display: block; color: rgba(255, 255, 255, 0.9);
+            font-size: 0.68rem; font-weight: 800; letter-spacing: 1.8px;
+            text-transform: uppercase; margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif; font-size: 1.45rem;
+            color: var(--gold); text-shadow: 0 0 14px rgba(255, 215, 0, 0.45);
+            margin-bottom: 12px; line-height: 1.35;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif; font-size: 1.25rem;
+            color: var(--gold-light); margin-bottom: 12px;
+        }
+
+        .letter-body {
+            font-family: 'Playfair Display', serif; font-size: 0.92rem;
+            line-height: 1.75; color: #F8FAFC; text-align: left;
+            margin: 10px 0; max-height: 50vh; overflow-y: auto; padding-right: 4px;
+            touch-action: pan-y !important; -webkit-overflow-scrolling: touch;
+        }
+
+        .photo-booth-grid-4 {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0;
+        }
+
+        .photo-frame-4 {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 215, 0, 0.35);
+            border-radius: 12px; padding: 6px; text-align: top;
+            transition: transform 0.2s ease;
+        }
+
+        .photo-frame-4:active { transform: scale(0.96); }
+
+        .photo-frame-4 img {
+            width: 100%; height: 150px; object-fit: cover; object-position:center; border-radius: 8px;
+        }
+
+        .photo-caption-4 {
+            font-size: 0.65rem; color: var(--gold-light); display: block; margin-top: 4px; font-weight: 600;
+        }
+
+        .reasons-scroll-box {
+            max-height: 280px; overflow-y: auto; display: flex;
+            flex-direction: column; gap: 8px; padding-right: 6px; margin: 10px 0;
+            touch-action: pan-y !important; -webkit-overflow-scrolling: touch;
+        }
+
+        .reason-card {
+            background: rgba(255, 255, 255, 0.09);
+            border: 1px solid rgba(255, 215, 0, 0.22);
+            border-radius: 10px; padding: 10px 12px; font-size: 0.78rem;
+            text-align: left; color: #E2E8F0; line-height: 1.45;
+        }
+
+        .reason-card span { font-weight: 800; color: var(--gold); margin-right: 6px; }
+
+        .unique-pet-vault-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+            max-height: 50vh; overflow-y: auto; padding: 6px; margin: 10px 0;
+            touch-action: pan-y !important; -webkit-overflow-scrolling: touch;
+        }
+
+        .unique-pet-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(0,0,0,0.4));
+            border: 1px solid var(--gold); border-radius: 14px; padding: 10px 8px;
+            font-size: 0.72rem; font-weight: 700; color: var(--gold-light);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .unique-pet-card:active { transform: scale(0.96); }
+
+        .audio-card {
+            background: rgba(5, 10, 25, 0.55); border: 1px solid var(--gold);
+            border-radius: 18px; padding: 12px; width: 100%; margin-top: 8px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+
+        .audio-header { display: flex; align-items: center; justify-content: space-between; }
+
+        .play-btn {
+            background: var(--gold); color: #02040A; border: none;
+            width: 40px; height: 40px; border-radius: 50%;
+            font-size: 0.9rem; font-weight: 800; cursor: pointer;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.55);
+        }
+
+        .progress-container { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+
+        .progress-bar-bg {
+            width: 100%; height: 6px; background: rgba(255, 255, 255, 0.22);
+            border-radius: 10px; overflow: hidden; cursor: pointer; position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #FFD700, #FFF099);
+            border-radius: 10px; transition: width 0.1s linear;
+        }
+
+        .time-stamps { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--gold-light); font-weight: 700; }
+
+        .wheel-game-wrapper {
+            display: flex; flex-direction: column; align-items: center; margin: 6px 0; position: relative;
+        }
+
+        .wheel-pointer { font-size: 1.6rem; color: var(--gold); margin-bottom: -12px; z-index: 10; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
+
+        .wheel-container-wrapper {
+            width: 170px; height: 170px; position: relative;
+            border-radius: 50%; border: 4px solid var(--gold);
+            box-shadow: 0 0 18px rgba(255, 215, 0, 0.45); overflow: hidden;
+        }
+
+        #wheel-canvas {
+            width: 100%; height: 100%;
+            transition: transform 4.8s cubic-bezier(0.15, 0.9, 0.15, 1);
+        }
+
+        .spin-btn {
+            margin-top: 10px; background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #02040A; font-weight: 800; border: none; padding: 10px 20px;
+            border-radius: 22px; cursor: pointer; font-size: 0.78rem;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.55);
+        }
+
+        .spin-btn:disabled { background: #64748B; color: #94A3B8; box-shadow: none; cursor: not-allowed; }
+
+        .bankroll-counter { font-size: 0.82rem; color: var(--gold-light); font-weight: 800; margin-top: 6px; }
+
+        .prize-summary-box {
+            background: rgba(15, 23, 42, 0.92); border: 1px solid var(--gold);
+            padding: 12px; border-radius: 14px; margin-top: 8px; font-size: 0.78rem; color: #FFF;
+        }
+
+        .screenshot-download-btn {
+            background: #22C55E; color: #FFF; border: none; padding: 8px 14px;
+            border-radius: 20px; font-weight: 800; font-size: 0.72rem; margin-top: 8px;
+            cursor: pointer; box-shadow: 0 0 12px rgba(34, 197, 94, 0.45);
+        }
+
+        .liverpool-card { border-color: var(--liverpool-red) !important; backdrop-filter: blur(0.00012px); }
+       
+        .cr7-card { border-color: var(--cr7-teal) !important; }
+
+/* RONALDO TRIVIA STYLES */
+
+/* Sub-modal container alignment */
+#screen-18 .cr7-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    padding: 24px;
+    overflow: hidden;
+}
+
+/* Views setup with fade-in transition */
+#trivia-start-view,
+#trivia-modal-view,
+#trivia-result-view {
+    width: 100%;
+    animation: triviaFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes triviaFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Scrollable container for question view */
+.trivia-container {
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    text-align: left;
+    max-height: 48vh; 
+    overflow-y: auto; 
+    padding-right: 4px; 
+    margin: 10px 0;
+    touch-action: pan-y !important; 
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Question box layout */
+.trivia-q-box {
+    background: rgba(255, 255, 255, 0.07); 
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 12px; 
+    padding: 12px;
+}
+
+.trivia-q-title {
+    font-size: 0.88rem; 
+    font-weight: 700; 
+    color: #FFF; 
+    margin-bottom: 8px;
+}
+
+/* 2x2 Options Grid */
+.trivia-options {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 8px;
+}
+
+/* Option Buttons */
+.trivia-opt-btn {
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFF; 
+    border-radius: 8px; 
+    padding: 10px 8px; 
+    font-size: 0.75rem; 
+    font-weight: 600;
+    cursor: pointer; 
+    transition: all 0.2s ease; 
+    text-align: center;
+}
+
+.trivia-opt-btn:hover:not(:disabled) {
+    background: rgba(0, 242, 254, 0.15);
+    border-color: var(--cr7-teal);
+    transform: translateY(-1px);
+}
+
+.trivia-opt-btn:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* Correct/Wrong Answer State Styling */
+.trivia-opt-btn.correct { 
+    background: rgba(34, 197, 94, 0.4) !important; 
+    border-color: #22C55E !important; 
+    color: #FFF !important;
+}
+
+.trivia-opt-btn.wrong { 
+    background: rgba(239, 68, 68, 0.4) !important; 
+    border-color: #EF4444 !important; 
+    color: #FFF !important;
+}
+
+/* Interactive Action Buttons */
+#start-trivia-btn,
+#restart-trivia-btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#start-trivia-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+}
+
+#restart-trivia-btn:hover {
+    background: rgba(0, 242, 254, 0.1) !important;
+}
+
+
+ /* CONTAINER & LAYOUT FOR FULL SCREEN FIT */
+#screen-23.screen-view {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 12px;
+    overflow: hidden; /* Prevents unwanted screen scrolling */
+}
+
+.glass-card {
+    width: 100%;
+    max-width: 680px;
+    max-height: 96vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 16px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.header-group {
+    text-align: center;
+}
+
+/* SLIDESHOW BOX */
+.slideshow-box {
+    width: 100%;
+    flex: 1;
+    min-height: 220px;
+    max-height: 48vh;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #0b0f19;
+    border: 2px solid var(--gold, #d4af37);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slideshow-img.active {
+    opacity: 1;
+}
+
+/* AUDIO CARD & PROGRESS BAR */
+.audio-card {
+    background: rgba(0, 0, 0, 0.25); border: 1px solid var(--gold);
+            border-radius: 18px; padding: 12px; width: 100%; margin-top: 8px;
+            display: flex; flex-direction: column; gap: 10px;
+}
+
+.song-details {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.song-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--gold-light, #f1c40f);
+}
+
+.song-subtitle {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.progress-container {
+    
+    width: 100%; display: flex; flex-direction: column; gap: 6px;
+}
+
+#current-time,
+#total-duration {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+    min-width: 35px;
+}
+
+#current-time {
+    text-align: left;
+}
+
+#total-duration {
+    text-align: right;
+}
+
+/* CUSTOM MODERN PROGRESS SLIDER */
+input[type="range"]#audio-progress {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    height: 6px;
+    border-radius: 4px;
+    background: linear-gradient(to right, var(--gold, #d4af37) 0%, rgba(255, 255, 255, 0.2) 0%);
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"]#audio-progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+input[type="range"]#audio-progress::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* PLAY BUTTON */
+.play-btn-central {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gold, #d4af37);
+    color: #000;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.play-btn-central:hover {
+    transform: scale(1.08);
+}
+
+.pet-cluster {
+    text-align: center;
+    margin-top: 8px;
+}
+
+
+        /* UNIFORM 7 ENVELOPES SECTION STYLING */
+        .envelopes-grid-container {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0;
+            width: 100%; align-items: center; justify-items: center;
+        }
+
+        .envelope-item {
+            width: 100%; height: 75px;
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.18), rgba(10, 15, 30, 0.85));
+            border: 1.5px solid var(--gold); border-radius: 16px; padding: 8px 4px;
+            cursor: pointer; transition: all 0.25s ease;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.5); position: relative; overflow: hidden;
+        }
+
+        .envelope-item:active { transform: scale(0.92); background: rgba(255, 215, 0, 0.35); }
+        .envelope-icon-big { font-size: 1.6rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)); }
+        .envelope-number-label { font-size: 0.68rem; font-weight: 800; color: var(--gold-light); letter-spacing: 0.5px; text-align: center; }
+
+        .envelope-item-7 { grid-column: 2 / span 1; }
+
+        /* SUB-PAGE OVERLAY MODAL FOR ENVELOPES */
+        .subpage-modal {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(4, 8, 20, 0.96); border-radius: 24px; padding: 20px 16px;
+            z-index: 100; display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: inset 0 0 30px rgba(255, 215, 0, 0.2);
+            animation: slideUpSubpage 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        }
+
+        @keyframes slideUpSubpage {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .subpage-header {
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3); padding-bottom: 10px; margin-bottom: 10px;
+        }
+
+        .subpage-close-btn {
+            background: rgba(255, 215, 0, 0.2); border: 1px solid var(--gold);
+            color: var(--gold-light); font-size: 0.75rem; font-weight: 800;
+            padding: 6px 14px; border-radius: 20px; cursor: pointer;
+        }
+
+        .subpage-content-box {
+            flex: 1; overflow-y: auto; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center; padding: 6px;
+            touch-action: pan-y !important; -webkit-overflow-scrolling: touch;
+        }
+
+        .certificate-img-wrapper {
+            width: 100%; max-height: 52vh; border-radius: 12px;
+            border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            object-fit: contain; background: #000;
+        }
+
+        /* CHAT ARCHIVES IMAGE CARDS GRID */
+        .chat-cards-container {
+            display: flex; flex-direction: column; gap: 12px;
+            max-height: 48vh; overflow-y: auto; padding-right: 4px; margin: 10px 0;
+            touch-action: pan-y !important; -webkit-overflow-scrolling: touch;
+        }
+
+        .chat-image-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 14px; padding: 8px; text-align: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+        }
+
+        .chat-image-card img {
+            width: 100%; max-height: 220px; object-fit: contain; border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.2); background: rgba(0,0,0,0.5);
+        }
+
+        .chat-image-card .photo-caption-4 {
+            font-size: 0.72rem; margin-top: 6px; color: var(--gold-light); font-weight: 700;
+        }
+       
+
+        /* FITTED FINAL SCREEN ADJUSTMENTS */
+        #screen-24 .glass-card {
+            padding: 16px 14px;
+            max-height: 85vh;
+        }
+
+        #screen-24 .hero-title, #screen-24 .section-title {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        #screen-24 .letter-body {
+            font-size: 0.8rem;
+            line-height: 1.48;
+            margin: 6px 0;
+            max-height: 54vh;
+            padding-right: 2px;
+        }
+
+        #screen-24 .signature-box {
+            margin-top: 10px;
+            border-top: 1px dashed var(--gold);
+            padding-top: 8px;
+        }
+
+        #screen-24 .signature-box p {
+            font-size: 0.72rem;
+            color: #CBD5E1;
+            font-style: italic;
+        }
+
+        #screen-24 .signature-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
+        /* MOBILE NAV BAR */
+        .mobile-nav-bar {
+            position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 90;
+            background: rgba(2, 5, 15, 0.92); border: 1px solid var(--glass-border);
+            padding: 8px 16px; border-radius: 30px; backdrop-filter: blur(12px);
+            max-width: 92vw;
+        }
+
+        .nav-controls-row { display: flex; align-items: center; gap: 10px; }
+
+        .nav-arrow-btn {
+            background: rgba(255, 215, 0, 0.18); border: 1px solid var(--gold);
+            color: var(--gold-light); font-size: 0.72rem; font-weight: 800;
+            padding: 5px 12px; border-radius: 16px; cursor: pointer; user-select: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-arrow-btn:active { background: var(--gold); color: #000; transform: scale(0.94); }
+        .dots-container { display: flex; gap: 2px; align-items: center; max-width: 50vw; overflow-x: auto; }
+        .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); transition: all 0.3s ease; cursor: pointer; flex-shrink: 0; }
+        .dot.active { background: var(--gold); width: 14px; border-radius: 10px; }
+        .swipe-hint { font-size: 0.6rem; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; font-weight: 700; }
+        .tactical-card { border-color: var(--military-blue) !important; }
+        .hidden { display: none !important; }
+/* Container & Grid Setup */
+.gh-container {
+    padding: 2rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gh-badge-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.gh-title {
+    margin: 8px 0;
+}
+
+.gh-desc {
+    margin-bottom: 2rem;
+    opacity: 0.85;
+}
+
+/* Cards Grid Layout */
+.gh-game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+/* Individual Game Link Cards */
+.gh-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.gh-card:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.15);
+}
+
+.gh-card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 0.75rem;
+}
+
+.gh-card-title {
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+}
+
+.gh-play-btn {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.gh-tag-wrapper {
+    margin-top: 2rem;
+}
+
+    </style>
+</head>
+<body>
+
+    <audio id="main-audio" src="runningtoyou.mp3" crossorigin="anonymous"></audio>
+    <audio id="military-audio" src="bb.mp3" crossorigin="anonymous"></audio>
+    <audio id="liverpool-audio" src="ynwa.mp3" crossorigin="anonymous"></audio>
+    <audio id="background-idle-audio" src="" loop crossorigin="anonymous"></audio>
+
+    <div class="slider-container" id="slider">
+
+        <section class="screen-view" id="screen-1">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">Adedapo Teminikan 👑❤️</div>
+                    <div class="badge" style="color: var(--gold);">OPERATION SEP 17 • VIP CLEARANCE</div>
+                    <h1 class="hero-title" style="margin: 10px 0;">MISSION ACCOMPLISHED 🎖️</h1>
+                </div>
+                
+                <p style="color: #E2E8F0; font-size: 0.88rem; font-weight: 700; margin: 16px 0; line-height: 1.5;">
+                    Welcome to your official birthday universe, babe! 😘
+                </p>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">babe ❤️🥺</span>
+                    <span class="pet-tag">Ife mhi 💕😘</span>
+                    <span class="pet-tag">Ife Adenike 🌹❤️</span>
+                    <span class="pet-tag">Ayanfe mhi 🥰💖</span>
+                    <span class="pet-tag">Idunnu mhi 😚💕</span>
+                    <span class="pet-tag">Enibiokan mhi 💞🫶🏽</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-2">
+            <div class="sky-hearts-container" id="sky-hearts-container"></div>
+
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">Enikeji mhi 😍❤️</div>
+                    <div class="badge">CELEBRATION TIME 🎂</div>
+                    <h1 class="hero-title">HAPPY BIRTHDAY<br>AFUYE ADEDAPO EMMANUEL</h1>
+                </div>
+                
+                <p style="color: #CBD5E1; font-size: 0.82rem; margin: 14px 0; font-weight: 600; line-height: 1.5;">
+                    TO THE MOST AMAZING, HANDSOME & LOVING MAN IN MY ENTIRE WORLD ❤️
+                </p>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">Ore mhi 🤭💓</span>
+                    <span class="pet-tag">Ololufe mhi ❤️‍🔥🥹</span>
+                    <span class="pet-tag">Ayo mhi 💝😊</span>
+                    <span class="pet-tag">Okan mhi ❤️🫰</span>
+                    <span class="pet-tag">My Obim 🫰❤️</span>
+                    <span class="pet-tag">My No 1 🥇💞</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-3">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My King 👑❤️</div>
+                    <div class="badge">THE GRAND COMPILATION 📜</div>
+                    <h2 class="section-title">Introduction to 716 Reasons Why I Love You</h2>
+                </div>
+
+                <div style="font-size: 0.84rem; color: #F1F5F9; line-height: 1.7; margin: 12px 0; text-align: left; max-height: 48vh; overflow-y: auto; padding-right: 4px;" class="letter-body">
+                    <p style="margin-bottom: 12px; font-weight: 700; color: var(--gold-light);">
+                        From October 1st, 2024, to September 17th, 2026, we will have spent 716 beautiful days together.
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                        Every single day with you has given me another reason to love you, admire you, appreciate you, and be grateful for you.
+                    </p>
+                    <p>
+                        This vault is split into 5 distinct parts across our journey—each reason carefully chosen to capture our memories, our quiet moments, your unwavering strength, and the endless joy you bring into my life. Take your time scrolling through them, my love. 💖
+                    </p>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Queen Maker 👑💞</span>
+                    <span class="pet-tag">My Peace 🤍🕊️</span>
+                    <span class="pet-tag">My Guiding Light ✨💛</span>
+                    <span class="pet-tag">My Whole Heart 💓🩵</span>
+                    <span class="pet-tag">My Heartbeat 🥰</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-4">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Precious Heart 💖💙</div>
+                    <div class="badge">REASONS VAULT • PART 1 (#1–#150) 📜</div>
+                    <h2 class="section-title">Vault 1</h2>
+                </div>
+
+                <div class="reasons-scroll-box" id="vault-part-1-box"></div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Sweetheart 🌹💌</span>
+                    <span class="pet-tag">My Honey 🍯🧡</span>
+                    <span class="pet-tag">My Love ❤️🥰</span>
+                    <span class="pet-tag">My Darling 💞✨</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-5">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Crush 😍💗</div>
+                    <div class="badge">A LETTER FROM YOUR LOVE PART 1 💌</div>
+                </div>
+                
+                <div class="letter-body">
+My love, I don’t even know where to start… because loving you feels like something too deep for words. Being with you has shown me a kind of peace, safety, and joy I never knew existed. 
+
+You came into my life and made everything brighter, calmer, and more meaningful. You quietly became my favorite part of every day. Every phone call, every laugh, every gentle glance from you resets my whole world.
+
+Thank you for choosing me, for staying steady, and for loving me with so much heart and patience. You are my safe harbor, my greatest gift, and the easiest choice I make every single morning. I love you more than words will ever catch up to.
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Sweet Gentleman 🤵🏽💜</span>
+                    <span class="pet-tag">My Blessing 🙏💝</span>
+                    <span class="pet-tag">My Partner 🫂💚</span>
+                    <span class="pet-tag">My Favorite Notification 📱⭐</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-6">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Baby 😘🩷</div>
+                    <div class="badge">AUDIO & MEMORIES 🎵</div>
+                    <h2 class="section-title">OLUWATOBILOBA</h2>
+                </div>
+
+                <div class="photo-booth-grid-4">
+                    <div class="photo-frame-4">
+                        <img src="memories1.jpg" alt="memories1.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Oluwaseyifunmi ✨</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="memories2.jpg" alt="memories2.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Oluwagbemilekeota❤️</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="memories3.jpg" alt="memories3.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Inioluwa 💖</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="memories4.jpg" alt="memories4.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Temitope🌸</span>
+                    </div>
+                </div>
+                
+                <div class="audio-card">
+                    <div class="audio-header">
+                        <div style="text-align: left;">
+                            <div style="font-weight: 700; font-size: 0.88rem; color: var(--gold-light);">Running to you</div>
+                            <div style="font-size: 0.76rem; color: #94A3B8;">This is just to tell you I'll be with you</div>
+                        </div>
+                        <button class="play-btn" id="main-audio-toggle-btn" onclick="toggleAudio('main-audio', 'main-audio-toggle-btn')">▶</button>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar-bg" onclick="seekAudio('main-audio', event)">
+                            <div class="progress-bar-fill" id="main-progress-fill"></div>
+                        </div>
+                        <div class="time-stamps">
+                            <span id="main-current-time">0:00</span>
+                            <span id="main-total-duration">3:11</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Babe 😋♥️</span>
+                    <span class="pet-tag">My Boo 💋🩶</span>
+                    <span class="pet-tag">My Sunshine 🌟💕</span>
+                    <span class="pet-tag">My Lovebird 🕊️💟</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-7">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Cupcake 🧁🤎</div>
+                    <div class="badge">REASONS VAULT • PART 2 (#151–#300) 📜</div>
+                    <h2 class="section-title">Vault 2</h2>
+                </div>
+
+                <div class="reasons-scroll-box" id="vault-part-2-box"></div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Pumpkin 🎃🖤</span>
+                    <span class="pet-tag">My Cute Problem 😜💦</span>
+                    <span class="pet-tag">My Special One 💝⭐</span>
+                    <span class="pet-tag">My Forever Home 🏡❤️</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-8">
+            <div class="glass-card tactical-card">
+                <div>
+                    <div class="pet-name-header">My Officer and Gentleman 🎖️🤵🏽</div>
+                    <div class="badge" style="color: var(--military-blue);">HONOR & SERVICE 🛡️</div>
+                    <h2 class="section-title" style="color: var(--military-blue);">Paramilitary and Military</h2>
+                </div>
+                
+                <p style="color: #E2E8F0; font-size: 0.54rem; font-weight: 300; margin: 16px 0; line-height: 1.5; margin-top: -15px;">
+                    Your unwavering passion, discipline, and dedication to the paramilitary lifestyle inspire me every single day. Seeing how deeply committed you are has taught me resilience, focus, and strength in ways I never expected. Thank you for being my constant inspiration.
+                </p>
+
+                <div class="photo-booth-grid-4">
+                    <div class="photo-frame-4" style="border-color: rgba(56, 189, 248, 0.4);">
+                        <img src="officer1.jpg" alt="officer1.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4" style="color: var(--military-blue);">My sergeant🎖️</span>
+                    </div>
+                    <div class="photo-frame-4" style="border-color: rgba(56, 189, 248, 0.4);">
+                        <img src="officer2.jpg" alt="officer2.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4" style="color: var(--military-blue);">My captain🛩️</span>
+                    </div>
+                    <div class="photo-frame-4" style="border-color: rgba(56, 189, 248, 0.4);">
+                        <img src="officer3.jpg" alt="officer3.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4" style="color: var(--military-blue);">My AIRLORD⚓</span>
+                    </div>
+                    <div class="photo-frame-4" style="border-color: rgba(56, 189, 248, 0.4);">
+                        <img src="officer4.jpg" alt="officer4.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4" style="color: var(--military-blue);">My AIR FORCE BABY👑</span>
+                    </div>
+                </div>
+
+                <div class="audio-card" style="border-color: var(--military-blue);">
+                    <div class="audio-header">
+                        <div style="text-align: left;">
+                            <div style="font-weight: 700; font-size: 0.88rem; color: var(--military-blue);">Boy's Brigade anthem</div>
+                    <div style="font-size: 0.76rem; color: #94A3B8;">Underneath the Banner</div>
+                        </div>
+                        
+                        <button class="play-btn" style="background: var(--military-blue);" id="military-audio-toggle-btn" onclick="toggleAudio('military-audio', 'military-audio-toggle-btn')">▶</button>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar-bg" onclick="seekAudio('military-audio', event)">
+                            <div class="progress-bar-fill" id="military-progress-fill" style="background: var(--military-blue);"></div>
+                        </div>
+                        <div class="time-stamps">
+                            <span id="military-current-time">0:00</span>
+                            <span id="military-total-duration">2:33</span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Wingman ✈️🩵</span>
+                    <span class="pet-tag">My Soldier Boy ❤️💂🏽‍♂️</span>
+                    <span class="pet-tag">My Commanding Officer 🎖️💯</span>
+                    <span class="pet-tag">My Parade Commander 🎖️💙</span>
+                    <span class="pet-tag">My Captain 🎖️💞</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-9">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Forever and Always ♾️💖</div>
+                    <div class="badge">REASONS VAULT • PART 3 (#301–#450) 📜</div>
+                    <h2 class="section-title">Vault 3</h2>
+                </div>
+
+                <div class="reasons-scroll-box" id="vault-part-3-box"></div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Entire Universe 🌍✨</span>
+                    <span class="pet-tag">My Love Story ❤️📖</span>
+                    <span class="pet-tag">My Favorite Hello 🌹💌</span>
+                    <span class="pet-tag">My Hardest Goodbye 🥹💔</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-10">
+            <div class="glass-card" id="screenshotScene">
+                <div>
+                    <div class="pet-name-header">My Baby for Life 😘💖</div>
+                    <div class="badge">INTERACTIVE BREAK 🎡</div>
+                    <h2 class="section-title">Spin To Win Birthday Cash!</h2>
+                </div>
+
+                <div class="wheel-game-wrapper">
+                    <div class="wheel-pointer">▼</div>
+                    <div class="wheel-container-wrapper">
+                        <canvas id="wheel-canvas" width="300" height="300"></canvas>
+                    </div>
+                    <button class="spin-btn" id="wheel-spin-btn" onclick="spinWheelNextTurn()">SPIN THE WHEEL 🎁 (3 LEFT)</button>
+                </div>
+
+                <div class="bankroll-counter" id="bankroll-display">Total Cash Won: ₦0</div>
+
+                <div id="prize-summary-container" class="prize-summary-box hidden">
+                    <p style="font-weight: 800; color: var(--gold); font-size: 0.92rem;">🎉 ALL 3 SPINS COMPLETED! 🎉</p>
+                    <p style="margin-top: 4px;" id="final-prize-text">Grand Cash Total: <strong>₦0</strong></p>
+                    <p style="font-size: 0.72rem; color: #86EFAC; margin-top: 6px; font-style: italic;">
+                        Save this screenshot to your phone and send to your girl to claim! 💋
+                    </p>
+                    <button class="screenshot-download-btn" id="saveScreenshot">📸 Save Screenshot to Phone</button>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Forever Blessing 🙏💝</span>
+                    <span class="pet-tag">My Forever Baby 😘💞</span>
+                    <span class="pet-tag">My Forever Sweetheart ❤️♾️</span>
+                    <span class="pet-tag">My Forever Favorite 🥹💞</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-11">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Greatest Blessing 🙏💎</div>
+                    <div class="badge">REASONS VAULT • PART 4 (#451–#600) 📜</div>
+                    <h2 class="section-title">Vault 4</h2>
+                </div>
+
+                <div class="reasons-scroll-box" id="vault-part-4-box"></div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Favourite Blessing 💝🌸</span>
+                    <span class="pet-tag">My Sweet Soul 💞🌷</span>
+                    <span class="pet-tag">My Sweet Escape 🤍✨</span>
+                    <span class="pet-tag">My Sweetest Boy 😘💛</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-12">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Sweetest Treasure 💎❤️</div>
+                    <div class="badge">SPECIAL DEDICATION 👑</div>
+                    <h2 class="section-title">The Pet Name Vault</h2>
+                </div>
+
+                <div class="unique-pet-vault-grid" id="unique-pet-grid">
+                    <div class="unique-pet-card">babe ❤️🥺</div>
+                    <div class="unique-pet-card">Ife mhi 💕😘</div>
+                    <div class="unique-pet-card">Ife Adenike 🌹❤️</div>
+                    <div class="unique-pet-card">Ayanfe mhi 🥰💖</div>
+                    <div class="unique-pet-card">Idunnu mhi 😚💕</div>
+                    <div class="unique-pet-card">Enibiokan mhi 💞🫶🏽</div>
+                    <div class="unique-pet-card">Ore mhi 🤭💓</div>
+                    <div class="unique-pet-card">Ololufe mhi ❤️‍🔥🥹</div>
+                    <div class="unique-pet-card">Ayo mhi 💝😊</div>
+                    <div class="unique-pet-card">Okan mhi ❤️🫰</div>
+                    <div class="unique-pet-card">My Obim 🫰❤️</div>
+                    <div class="unique-pet-card">My No 1 🥇💞</div>
+                    <div class="unique-pet-card">My Queen Maker 👑💞</div>
+                    <div class="unique-pet-card">My Peace 🤍🕊️</div>
+                    <div class="unique-pet-card">My Guiding Light ✨💛</div>
+                    <div class="unique-pet-card">My Whole Heart 💓🩵</div>
+                    <div class="unique-pet-card">My Heartbeat 🥰</div>
+                    <div class="unique-pet-card">My Sweetheart 🌹💌</div>
+                    <div class="unique-pet-card">My Honey 🍯🧡</div>
+                    <div class="unique-pet-card">My Love ❤️🥰</div>
+                    <div class="unique-pet-card">My Darling 💞✨</div>
+                    <div class="unique-pet-card">My Sweet Gentleman 🤵🏽💜</div>
+                    <div class="unique-pet-card">My Blessing 🙏💝</div>
+                    <div class="unique-pet-card">My Partner 🫂💚</div>
+                    <div class="unique-pet-card">My Favorite Notification 📱⭐</div>
+                    <div class="unique-pet-card">My Babe 😋♥️</div>
+                    <div class="unique-pet-card">My Boo 💋🩶</div>
+                    <div class="unique-pet-card">My Sunshine 🌟💕</div>
+                    <div class="unique-pet-card">My Lovebird 🕊️💟</div>
+                    <div class="unique-pet-card">My Pumpkin 🎃🖤</div>
+                    <div class="unique-pet-card">My Cute Problem 😜💦</div>
+                    <div class="unique-pet-card">My Special One 💝⭐</div>
+                    <div class="unique-pet-card">My Forever Home 🏡❤️</div>
+                    <div class="unique-pet-card">My Wingman ✈️🩵</div>
+                    <div class="unique-pet-card">My Soldier Boy ❤️💂🏽‍♂️</div>
+                    <div class="unique-pet-card">My Commanding Officer 🎖️💯</div>
+                    <div class="unique-pet-card">My Parade Commander 🎖️💙</div>
+                    <div class="unique-pet-card">My Captain 🎖️💞</div>
+                    <div class="unique-pet-card">My Entire Universe 🌍✨</div>
+                    <div class="unique-pet-card">My Love Story ❤️📖</div>
+                    <div class="unique-pet-card">My Favorite Hello 🌹💌</div>
+                    <div class="unique-pet-card">My Hardest Goodbye 🥹💔</div>
+                    <div class="unique-pet-card">My Forever Blessing 🙏💝</div>
+                    <div class="unique-pet-card">My Forever Baby 😘💞</div>
+                    <div class="unique-pet-card">My Forever Sweetheart ❤️♾️</div>
+                    <div class="unique-pet-card">My Forever Favorite 🥹💞</div>
+                    <div class="unique-pet-card">My Favourite Blessing 💝🌸</div>
+                    <div class="unique-pet-card">My Sweet Soul 💞🌷</div>
+                    <div class="unique-pet-card">My Sweet Escape 🤍✨</div>
+                    <div class="unique-pet-card">My Sweetest Boy 😘💛</div>
+                    <div class="unique-pet-card">My Comfort Person 🩵🫂</div>
+                    <div class="unique-pet-card">My Safe Haven 🤍🏡</div>
+                    <div class="unique-pet-card">My Daily Happiness 😊🌸</div>
+                    <div class="unique-pet-card">My Gist Partner 😂💕</div>
+                    <div class="unique-pet-card">My Favorite Human 🥹❤️</div>
+                    <div class="unique-pet-card">My Missing Rib 🫰❤️</div>
+                    <div class="unique-pet-card">My Home 🏡💕</div>
+                    <div class="unique-pet-card">My Better Half ❤️🥹</div>
+                    <div class="unique-pet-card">My Protector 🛡️❤️</div>
+                    <div class="unique-pet-card">LOML 💚💋</div>
+                </div>
+
+                <p style="font-size: 0.72rem; color: var(--gold-light); margin-top: 4px; font-weight: 600;">
+                    Every name here is a piece of my heart reserved for you. ✨
+                </p>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-13">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Personal Person 🤗💖</div>
+                    <div class="badge">REASONS VAULT • PART 5 (#601–#716) 📜</div>
+                    <h2 class="section-title">Vault 5</h2>
+                </div>
+
+                <div class="reasons-scroll-box" id="vault-part-5-box"></div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Comfort Person 🩵🫂</span>
+                    <span class="pet-tag">My Safe Haven 🤍🏡</span>
+                    <span class="pet-tag">My Daily Happiness 😊🌸</span>
+                    <span class="pet-tag">My Gist Partner 😂💕</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-14">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My One & Only ❤️♾️</div>
+                    <div class="badge">A LETTER FROM YOUR LOVE PART 2 💌</div>
+                </div>
+
+                <div class="letter-body">
+                 I don’t just love you… I feel you. I see the parts of you you don’t even have to explain—the quiet strength, the dedication, the way you carry so much with so much grace. 
+
+                 Your silence, your strength, your softness, your calm, your fire… I understand them all, and I don’t run from any of it.
+
+                 You are the man who holds my world together simply by existing. Watching you strive, watch you protect, and watching you love me gives me a pride I can't put into words. Whatever comes next in life, remember that you never walk alone. I am standing right beside you, holding your hand, cheering you on, and loving you unconditionally through every single season.
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Favorite Human 🥹❤️</span>
+                    <span class="pet-tag">My Missing Rib 🫰❤️</span>
+                    <span class="pet-tag">My Home 🏡💕</span>
+                    <span class="pet-tag">My Better Half ❤️🥹</span>
+                    <span class="pet-tag">My Protector 🛡️❤️</span>
+                    <span class="pet-tag">LOML 💚💋</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIVERPOOL SECTION WITH ynwa.mp3 AUDIO -->
+        <section class="screen-view" id="screen-15">
+            <div class="glass-card liverpool-card">
+                <div>
+                    <div class="pet-name-header" style="background: rgba(229, 9, 20, 0.2); border-color: var(--liverpool-red);">My Liverpool Champion 🔴⚽</div>
+                    <div class="badge" style="color: var(--liverpool-red);">ANFIELD PRIDE • YNWA 🏟️</div>
+                    <h2 class="section-title" style="color: #FF4D4D;">You'll Never Walk Alone</h2>
+                </div>
+
+                <div class="letter-body" style="font-size: 0.85rem; max-height: 42vh;">
+                    <p style="margin-bottom: 10px; font-weight: 700; color: #FF6B6B;">
+                        To my favorite Liverpool fan in the whole world... ⚽
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        Just like the legendary anthem sung with pride at Anfield, I want to promise you one thing today and forever: in every victory, in every struggle, through every storm and every cheer, <strong>You'll Never Walk Alone</strong>.
+                    </p>
+                    <p>
+                        I'll be right beside you in the stands of life, cheering you on louder than anyone else! ❤️🔴
+                    </p>
+                </div>
+
+                <div class="audio-card" style="border-color: var(--liverpool-red);">
+                    <div class="audio-header">
+                        <div style="text-align: left;">
+                            <div style="font-weight: 700; font-size: 0.88rem; color: #FF6B6B;">Liverpool Anthem</div>
+                            <div style="font-size: 0.76rem; color: #94A3B8;">...</div>
+                        </div>
+                        <button class="play-btn" style="background: var(--liverpool-red); color: #FFF;" id="liverpool-audio-toggle-btn" onclick="toggleAudio('liverpool-audio', 'liverpool-audio-toggle-btn')">▶</button>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar-bg" onclick="seekAudio('liverpool-audio', event)">
+                            <div class="progress-bar-fill" id="liverpool-progress-fill" style="background: var(--liverpool-red);"></div>
+                        </div>
+                        <div class="time-stamps">
+                            <span id="liverpool-current-time">0:00</span>
+                            <span id="liverpool-total-duration">1:46</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag" style="border-color: var(--liverpool-red);">My Star Striker ⚽🔴</span>
+                    <span class="pet-tag" style="border-color: var(--liverpool-red);">Anfield King 👑🔴</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-16">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Favorite Story 📖❤️</div>
+                    <div class="badge">COUPLE MEMORIES 📸</div>
+                    <h2 class="section-title">Us Together</h2>
+                </div>
+
+                <div class="photo-booth-grid-4">
+                    <div class="photo-frame-4">
+                        <img src="couple1.jpg" alt="couple1.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Our First Magic ✨</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="couple2.jpg" alt="couple2.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Pure Love 😊</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="couple3.jpg" alt="couple3.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">My Comfort 🫂</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="couple4.jpg" alt="couple4.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Forever & Always ♾️</span>
+                    </div>
+                </div>
+                <div class="pet-cluster">
+                    <span class="pet-tag">Us Against The World 🌍❤️</span>
+                    <span class="pet-tag">My Favorite View 🥰</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CR7 SECTION -->
+        <section class="screen-view" id="screen-17">
+            <div class="glass-card cr7-card">
+                <div>
+                    <div class="pet-name-header" style="background: rgba(0, 242, 254, 0.2); border-color: var(--cr7-teal); color: var(--cr7-teal);">GOAT Energy ⚡🔥</div>
+                    <div class="badge" style="color: var(--cr7-teal);">CR7 EXCELLENCE • SIUUU! 🐐</div>
+                    <h2 class="section-title" style="color: var(--cr7-teal);">Built For Greatness</h2>
+                </div>
+
+                <div class="letter-body" style="font-size: 0.88rem; max-height: 52vh;">
+                    <p style="margin-bottom: 12px; font-weight: 700; color: var(--cr7-teal);">
+                        Hard work, relentless focus, and unmatched confidence... 👑
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                        The same drive and determination that Cristiano Ronaldo displays on the pitch is what I see in you every single day. You never back down from a challenge, you protect what is yours, and you always aim for perfection.
+                    </p>
+                    <p>
+                        Keep shining, my champion. SIUUU! ⚡🔥
+                    </p>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag" style="border-color: var(--cr7-teal);">My GOAT 🐐⚡</span>
+                    <span class="pet-tag" style="border-color: var(--cr7-teal);">My Champion 🏆💙</span>
+                </div>
+            </div>
+        </section>
+
+<!-- 7 QUESTIONS RONALDO TRIVIA PAGE RIGHT AFTER CR7 PAGE -->
+<section class="screen-view" id="screen-18">
+  <div class="glass-card cr7-card">
+    
+    <!-- START SCREEN (PREVIEW) -->
+    <div id="trivia-start-view">
+      <div class="pet-name-header" style="background: rgba(0, 242, 254, 0.2); border-color: var(--cr7-teal); color: var(--cr7-teal);">CR7 Fan Challenge ⚽⚡</div>
+      <div class="badge" style="color: var(--cr7-teal);">7 TRIVIA QUESTIONS 🧠</div>
+      <h2 class="section-title" style="color: var(--cr7-teal);">Only Real Fans Know</h2>
+      <button id="start-trivia-btn" class="pet-tag" style="background: var(--cr7-teal); color: #000; border: none; padding: 10px 20px; margin-top: 15px; cursor: pointer; font-weight: 800;">
+        CLICK TO PLAY CR7 TRIVIA 🚀
+      </button>
+    </div>
+
+    <!-- SUB-MODAL QUESTION VIEW (HIDDEN BY DEFAULT) -->
+    <div id="trivia-modal-view" style="display: none; width: 100%;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <span id="question-tracker" style="color: var(--cr7-teal); font-weight: 700; font-size: 0.9rem;">Question 1 / 7</span>
+        <div id="trivia-score-banner" style="font-size: 0.82rem; font-weight: 800; color: var(--gold);">
+          Score: 0 / 7
+        </div>
+      </div>
+
+      <!-- SINGLE QUESTION RENDER AREA -->
+      <div class="trivia-container" id="cr7-trivia-box"></div>
+    </div>
+
+    <!-- RESULT SUMMARY VIEW (HIDDEN BY DEFAULT) -->
+    <div id="trivia-result-view" style="display: none; text-align: center;">
+      <h3 style="color: var(--cr7-teal); font-size: 1.4rem;">Challenge Complete! 🎉</h3>
+      <p id="final-score-text" style="font-size: 1.2rem; font-weight: 800; color: var(--gold); margin: 15px 0;"></p>
+      <div class="pet-cluster" style="justify-content: center;">
+        <span id="final-badge" class="pet-tag" style="border-color: var(--cr7-teal);">True CR7 Scholar 🎓⚽</span>
+      </div>
+      <button id="restart-trivia-btn" class="pet-tag" style="background: transparent; border-color: var(--cr7-teal); color: var(--cr7-teal); margin-top: 15px; cursor: pointer;">
+        Play Again 🔄
+      </button>
+    </div>
+
+  </div>
+</section>
+
+    
+        <!-- 7 UNIFORM ENVELOPES SECTION -->
+        <section class="screen-view" id="screen-19">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">Secret Surprises 💌✨</div>
+                    <div class="badge">7 MYSTERY ENVELOPES ✉️</div>
+                    <h2 class="section-title">Pick An Envelope</h2>
+                </div>
+
+                <p style="font-size: 0.74rem; color: #E2E8F0; margin-bottom: 6px;">Tap any envelope to open its surprise!</p>
+
+                <div class="envelopes-grid-container">
+                    <div class="envelope-item" onclick="clickEnvelopeSlot(0)">
+                        <div class="envelope-icon-big">✉️</div>
+                        <span class="envelope-number-label">Envelope 1<br></span>
+                    </div>
+                    <div class="envelope-item" onclick="clickEnvelopeSlot(1)">
+                        <div class="envelope-icon-big">✉️</div>
+                        <span class="envelope-number-label">Envelope 2</span>
+                    </div>
+                    <div class="envelope-item" onclick="clickEnvelopeSlot(2)">
+                        <div class="envelope-icon-big">✉️</div>
+                        <span class="envelope-number-label">Envelope 3</span>
+                    </div>
+                    <div class="envelope-item" onclick="clickEnvelopeSlot(3)">
+                        <div class="envelope-icon-big">✉️</div>
+                        <span class="envelope-number-label">Envelope 4</span>
+                    </div>
+                    <div class="envelope-item" onclick="clickEnvelopeSlot(4)">
+                        <div class="envelope-icon-big">✉️</div>
+                        <span class="envelope-number-label">Envelope 5</span>
+                    </div>
+                    <div class="envelope-item" onclick="clickEnvelopeSlot(5)">
+                        <div class="envelope-icon-big">✉️</div>
+                        <span class="envelope-number-label">Envelope 6</span>
+                    </div>
+                    <div class="envelope-item envelope-item-7" onclick="clickEnvelopeSlot(6)">
+                        <div class="envelope-icon-big">✉️</div>
+                        <span class="envelope-number-label">Envelope 7<br></span>
+                    </div>
+                </div>
+
+                <!-- SUB-PAGE VIEW OVERLAY -->
+                <div id="envelope-subpage-modal" class="subpage-modal hidden">
+                    <div class="subpage-header">
+                        <span id="subpage-title-badge" class="badge" style="margin:0; color:var(--gold);">ENVELOPE UNLOCKED</span>
+                        <button class="subpage-close-btn" onclick="closeEnvelopeSubpage()">✕ Close</button>
+                    </div>
+                    <div class="subpage-content-box" id="subpage-body-container"></div>
+                    <div class="pet-cluster" style="margin-top: 6px;">
+                        <span class="pet-tag">Unwrapped With Love 💖</span>
+                    </div>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">7 Secret Surprises Inside 💌✨</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen-view" id="screen-20">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">My Handsome Man 😍🔥</div>
+                    <div class="badge"> SPOTLIGHT 📸</div>
+                    <h2 class="section-title">OLUWASEYIFUNMI</h2>
+                </div>
+
+                <div class="photo-booth-grid-4">
+                    <div class="photo-frame-4">
+                        <img src="spotlight1.jpg" alt="spotlight1.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Pure Royalty 👑</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="spotlight2.jpg" alt="spotlight2.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">That Face 😍</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="spotlight3.jpg" alt="spotlight3.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">Unmatched Style ✨</span>
+                    </div>
+                    <div class="photo-frame-4">
+                        <img src="spotlight4.jpg" alt="spotlight4.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'">
+                        <span class="photo-caption-4">My Whole World ❤️</span>
+                    </div>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Fine Boy 🫠🔥</span>
+                    <span class="pet-tag">10/10 Man 💯❤️</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAT ARCHIVES CARD FORMAT WITH IMAGES chat1 to chat5 -->
+        <section class="screen-view" id="screen-21">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">Chat Archives 💬💌</div>
+                    <div class="badge"> MEMORIES 📱</div>
+                    <h2 class="section-title">Our Chat Screenshots</h2>
+                </div>
+
+                <div class="chat-cards-container">
+                    <div class="chat-image-card">
+                        <img src="chat1.jpg" alt="chat1.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80'">
+                        <span class="photo-caption-4">Chat 1 💬❤️</span>
+                    </div>
+                    <div class="chat-image-card">
+                        <img src="chat2.jpg" alt="chat2.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80'">
+                        <span class="photo-caption-4">Chat 2 💬✨</span>
+                    </div>
+                    <div class="chat-image-card">
+                        <img src="chat3.jpg" alt="chat3.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80'">
+                        <span class="photo-caption-4">Chat 3 💬🥹</span>
+                    </div>
+                    <div class="chat-image-card">
+                        <img src="chat4.jpg" alt="chat4.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80'">
+                        <span class="photo-caption-4">Chat 4 💬🥰</span>
+                    </div>
+                    <div class="chat-image-card">
+                        <img src="chat5.jpg" alt="chat5.jpg" crossorigin="anonymous" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80'">
+                        <span class="photo-caption-4">Chat 5 💬💖</span>
+                    </div>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">My Favorite Messages 💬💖</span>
+                </div>
+            </div>
+        </section>
+ <!-- GAME HUB SECTION -->
+<section class="screen-view gh-screen" id="gh-screen-game-hub">
+    <!-- Uses your site's existing glass-card -->
+    <div class="glass-card gh-container">
+        
+        <header class="gh-header">
+            <div class="gh-badge-group">
+                <span class="pet-name-header gh-sub-badge">Fun Time! 🎲✨</span>
+                <span class="badge gh-badge">ONLINE GAME ZONE 🏆</span>
+            </div>
+            <h2 class="section-title gh-title">Mini Games</h2>
+            <p class="game-description gh-desc">Click any game to launch and play instantly in a new tab!</p>
+        </header>
+
+        <div class="gh-game-grid">
+            
+            <!-- Ludo -->
+            <a class="glass-card gh-card" href="https://poki.com/en/g/ludo-king" target="_blank" rel="noopener noreferrer">
+                <div class="gh-card-icon">🎲</div>
+                <h3 class="gh-card-title">Ludo Legend</h3>
+                <span class="game-hub-btn gh-play-btn">Play External ↗</span>
+            </a>
+
+            <!-- Whot / Cards -->
+            <a class="glass-card gh-card" href="https://www.whot.online/" target="_blank" rel="noopener noreferrer">
+                <div class="gh-card-icon">🃏</div>
+                <h3 class="gh-card-title">Whot</h3>
+                <span class="game-hub-btn gh-play-btn">Play External ↗</span>
+            </a>
+
+            <!-- Tic-Tac-Toe -->
+            <a class="glass-card gh-card" href="https://poki.com/en/g/tic-tac-toe-3" target="_blank" rel="noopener noreferrer">
+                <div class="gh-card-icon">❌⭕</div>
+                <h3 class="gh-card-title">O & X (Tic-Tac-Toe)</h3>
+                <span class="game-hub-btn gh-play-btn">Play External ↗</span>
+            </a>
+
+        </div>
+
+        <div class="pet-cluster gh-tag-wrapper">
+            <span class="pet-tag gh-tag">Play & Win My Heart 🎲❤️</span>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- FINAL SLIDESHOW BEFORE ACKNOWLEDGEMENT -->
+<section class="screen-view" id="screen-23">
+    <div class="glass-card">
+        <div class="header-group">
+            <div class="pet-name-header">Our Journey In Photos 📸✨</div>
+            <div class="badge">THE GRAND SLIDESHOW 🌌</div>
+            <h2 class="section-title">Memories Slideshow</h2>
+        </div>
+
+        <!-- Slideshow Container -->
+        <div class="slideshow-box" id="final-slideshow-container">
+            <!-- First picture acts as the permanent initial image -->
+            <img src="memories1.jpg" class="slideshow-img active" alt="Memory 1">
+            <img src="couple1.jpg" class="slideshow-img" alt="Couple 1">
+            <img src="spotlight1.jpg" class="slideshow-img" alt="Spotlight 1">
+            <img src="slide1.jpg" class="slideshow-img" alt="Slide 1">
+            <img src="officer1.jpg" class="slideshow-img" alt="Officer 1">
+
+            <img src="memories2.jpg" class="slideshow-img" alt="Memory 2">
+            <img src="couple2.jpg" class="slideshow-img" alt="Couple 2">
+            <img src="officer2.jpg" class="slideshow-img" alt="Officer 2">
+            <img src="spotlight2.jpg" class="slideshow-img" alt="Spotlight 2">
+            <img src="slide2.jpg" class="slideshow-img" alt="Slide 2">
+            <img src="officer3.jpg" class="slideshow-img" alt="Officer 3">
+
+            <img src="memories3.jpg" class="slideshow-img" alt="Memory 3">
+            <img src="couple3.jpg" class="slideshow-img" alt="Couple 3">
+            <img src="spotlight3.jpg" class="slideshow-img" alt="Spotlight 3">
+            <img src="slide3.jpg" class="slideshow-img" alt="Slide 3">
+            <img src="officer4.jpg" class="slideshow-img" alt="Officer 4">
+
+            <img src="memories4.jpg" class="slideshow-img" alt="Memory 4">
+            <img src="couple4.jpg" class="slideshow-img" alt="Couple 4">
+            <img src="spotlight4.jpg" class="slideshow-img" alt="Spotlight 4">
+            <img src="slide4.jpg" class="slideshow-img" alt="Slide 4">
+            <img src="slide5.jpg" class="slideshow-img" alt="Slide 5">
+            <img src="slide6.jpg" class="slideshow-img" alt="Slide 6">
+        </div>
+
+        <!-- Audio Player & Controls -->
+        <div class="audio-card">
+            <!-- Audio Element -->
+            <audio id="slideshow-audio" src="byyou.mp3" preload="metadata"></audio>
+
+            <!-- Song Info -->
+            <div class="song-details">
+                <div class="song-title">By You</div>
+                <div class="song-subtitle">#Loving you always & Forever</div>
+            </div>
+
+            <!-- Progress Bar with start and end timers -->
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <input type="range" id="audio-progress" value="0" min="0" step="0.1">
+                <span id="total-duration">0:00</span>
+            </div>
+
+            <!-- Centralized Play Button -->
+            <div style="text-align: center;">
+                <button class="play-btn-central" id="slideshow-toggle-btn" onclick="toggleSlideshowAndAudio()">
+                    ▶
+                </button>
+            </div>
+        </div>
+
+        <div class="pet-cluster">
+            <span class="pet-tag">Every Picture Tells Our Story 💖</span>
+        </div>
+    </div>
+</section>
+
+
+
+        <!-- FINAL ACKNOWLEDGEMENT SECTION -->
+        <section class="screen-view" id="screen-24">
+            <div class="glass-card">
+                <div>
+                    <div class="pet-name-header">From Your Girl ❤️</div>
+                    <div class="badge">FINAL ACKNOWLEDGEMENT 💌</div>
+                    <h2 class="section-title">My Final Vow To You</h2>
+                </div>
+
+                <div class="letter-body"> <p>
+Adedapo Emmanuel, my love, my king, my best friend, my parade commander, and my whole heart... 
+
+Thank you for being everything you are. Thank you for making these 716 days feel like absolute paradise. Thank you for your patience, your sacrifices, your humor, and your unwavering devotion to us. 
+
+As you step into this beautiful new year of your life, I pray that God grants you all the desires of your heart, lifts you to heights beyond your wildest dreams, and protects you in all your ways. I will always be right here, loving you, honoring you, and celebrating you every single step of the way. 
+
+Happy Birthday, my forever home. I love you endlessly! ❤️✨
+                  </p>
+                    <div class="signature-box">
+                        <p>With all my love and devotion,</p>
+                        <h3>From Ayebidun Lois</h3>
+                    </div>
+                </div>
+
+                <div class="pet-cluster">
+                    <span class="pet-tag">Yours Forever & Always ❤️♾️</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="mobile-nav-bar">
+        <div class="nav-controls-row">
+            <button class="nav-arrow-btn" onclick="prevSlide()">◀ PREV</button>
+            <div class="dots-container" id="dots-container"></div>
+            <button class="nav-arrow-btn" onclick="nextSlide()">NEXT ▶</button>
+        </div>
+        <div class="swipe-hint">SWIPE LEFT / RIGHT ↔</div>
+   
+
+    <script>
+        let currentSlide = 0; 
+        const totalSlides = document.querySelectorAll('.screen-view').length;
+        const slider = document.getElementById('slider');
+        const dotsContainer = document.getElementById('dots-container');
+
+        let confettiIntervalTimer = null;
+        let slideshowTimer = null;
+
+        // 716 REASONS LIST
+        const fullReasonsList = [
+                      "Your smile that brightens even my darkest days.",
+                 "Your laugh that feels like home to me.",
+"Your beautiful eyes that speak without words.",
+"The way you look at me like I truly matter.",
+"Your voice that brings me peace instantly.",
+"Your sense of humor that always catches me off guard.",
+"Your kindness that flows naturally from you.",
+"Your personality that I can never get tired of.",
+"Your confidence that inspires me.",
+"Your honesty even when it’s not easy.",
+"The way you talk so effortlessly and naturally.",
+"The way you listen with real attention.",
+"How you make me feel without saying a word.",
+"Your presence that feels comforting.",
+"Your energy that fills any space you enter.",
+"Your warmth that feels like safety.",
+"Your intelligence that amazes me.",
+"Your creativity in everything you do.",
+"Your patience with me and others.",
+"Your empathy that shows how deeply you care.",
+"The way you care for people around you.",
+"The way you truly understand me.",
+"Your loyalty that never wavers.",
+"Your strength in hard times.",
+"Your softness that balances your strength.",
+"Your passion for what you love.",
+"Your dreams that push you forward.",
+"Your goals that show your focus.",
+"Your ambition that motivates me too.",
+"Your calm nature that soothes me.",
+"Your excitement that is contagious.",
+"Your curiosity about life.",
+"Your courage when things get hard.",
+"Your shy smile that melts me.",
+"Your happy smile that lights everything up.",
+"Your sincerity in everything you do.",
+"Your respect for people and feelings.",
+"Your openness with your emotions.",
+"Your uniqueness that no one can replace.",
+"The way you make me laugh without trying.",
+"The way you cheer me up instantly.",
+"The way you motivate me to keep going.",
+"The way you inspire me to grow.",
+"The way you surprise me in small ways.",
+"The way you care for others deeply.",
+"Your heart that is pure and genuine.",
+"Your soul that feels beautiful.",
+"Your vibe that feels like home.",
+"Your authenticity that never feels fake.",
+"The way you make everything feel better.",
+"The way you make time feel different.",
+"The way you change my mood instantly.",
+"The way you make me smile without trying.",
+"The way you make me feel safe.",
+"The way you make me feel seen.",
+"The way you make me feel heard.",
+"The way you make me feel valued.",
+"The way you make me feel special.",
+"The way you make me feel understood.",
+"Your kindness to strangers.",
+"Your thoughtfulness in small things.",
+"Your generosity that comes naturally.",
+"Your strength in difficult moments.",
+"Your care for details I never notice.",
+"Your gentle side that softens everything.",
+"Your playful side that makes life fun.",
+"Your serious side when needed.",
+"The way you remember small things about me.",
+"The way you notice details others miss.",
+"The way you react to my happiness.",
+"The way you react to my sadness.",
+"The way you react to my fears.",
+"The way you stay true to yourself.",
+"The way you stay strong even when tired.",
+"The way you stay kind no matter what.",
+"The way you stay honest in every situation.",
+"The way you stay real and grounded.",
+"The way you make moments special.",
+"The way you make memories unforgettable.",
+"The way you make ordinary days better.",
+"The way you make silence comfortable.",
+"The way you make conversations meaningful.",
+"The way you make me feel calm.",
+"The way you make me feel excited.",
+"The way you make me feel hopeful.",
+"The way you make me feel alive.",
+"Your morning smile that starts my day.",
+"Your presence at night that ends my day peacefully.",
+"Your calm voice when I’m stressed.",
+"Your excited voice when you’re happy.",
+"Your caring words when I need them.",
+"Your comforting words when I’m down.",
+"Your supportive words when I’m unsure.",
+"Your encouraging words when I feel weak.",
+"Your loving words that stay with me.",
+"The way you react to my jokes.",
+"The way you react to my silence.",
+"The way you react to my dreams.",
+"The way you react to my stories.",
+"The way you react to me with real attention.",
+"Your presence in my thoughts.",
+"Your place in my heart.",
+"Your importance in my life.",
+"Your impact on my happiness.",
+"Your influence on my days.",
+"Your role in my smiles.",
+"Your role in my dreams.",
+"Your role in my heart.",
+"The way you make time fly.",
+"The way you make moments matter.",
+"The way you make love feel real.",
+"The way you make me believe again.",
+"The way you make me trust again.",
+"The way you make me hope again.",
+"The way you make me dream again.",
+"The way you make me feel alive again.",
+"The way you make me laugh again.",
+"The way you make me smile again.",
+"Your smile that stays in my mind.",
+"Your laugh that stays in my thoughts.",
+"Your voice that I replay in my head.",
+"Your words that never leave me.",
+"Your actions that mean everything.",
+"Your care that touches my heart.",
+"Your love that feels real.",
+"Your presence that feels right.",
+"Your energy that feels warm.",
+"Your vibe that feels like home.",
+"The way you make me forget my worries.",
+"The way you make me feel peaceful.",
+"The way you make me feel appreciated.",
+"The way you make me feel respected.",
+"The way you make me feel complete.",
+"Your honesty in every situation.",
+"Your loyalty in relationships.",
+"Your faith in good things.",
+"Your belief in kindness.",
+"Your belief in love.",
+"Your belief in me.",
+"The way you make me smile at my phone.",
+"The way you make my heart race.",
+"The way you make me nervous in a good way.",
+"The way you make me excited just by existing.",
+"The way you make me happy for no reason.",
+"The way you make me calm instantly.",
+"The way you make me brave.",
+"The way you make me strong.",
+"The way you make me feel loved.",
+"The way you make me feel enough.",
+"The way you make me feel whole.",
+"Your smile that means everything to me.",
+"Your laugh that I never get tired of.",
+"Your voice that comforts my heart.",
+"Your words that stay with me forever.",
+"Your actions that show real love.",
+"Your honesty that builds trust.",
+"Your kindness that warms my heart.",
+"Your love that feels safe.",
+"Your presence that changes everything.",
+"Your heart that feels like home.",
+"The way you make me feel lucky.",
+"The way you make me feel grateful.",
+"The way you make me feel alive.",
+"The way you make me feel safe.",
+"The way you make me feel strong.",
+"The way you make me feel brave.",
+"The way you make me feel valued.",
+"The way you make me feel respected.",
+"The way you make me feel loved.",
+"The way you make me feel enough.",
+"Your presence in small moments.",
+"Your presence in big moments.",
+"Your presence in silence.",
+"Your presence in laughter.",
+"Your presence in my thoughts.",
+"Your presence in my dreams.",
+"Your presence in my heart.",
+"Your presence in my life.",
+"Your presence in my happiness.",
+"The way you make love feel simple and real.",
+"The way you make love feel easy and natural.",
+"The way you make even silence feel comfortable.",
+"The way you stay with me even in my worst moments.",
+"The way you never make me feel like a burden.",
+"The way you accept every part of me.",
+"The way you never try to change who I am.",
+"The way you inspire me to grow into a better person.",
+"The way you challenge me gently without hurting me.",
+"The way you support my dreams like they are yours.",
+"The way you believe in me even when I doubt myself.",
+"The way you make me feel safe in your arms.",
+"The way your hugs fix everything without words.",
+"The way your touch calms my entire mind.",
+"The way your smile makes my heart stop for a second.",
+"The way your eyes look at me like I’m the only one.",
+"The way your voice softens all my worries.",
+"The way you care for me without being asked.",
+"The way you always notice when I’m not okay.",
+"The way you try your best to understand me.",
+"The way you never give up on us.",
+"The way you put effort into our relationship.",
+"The way you make me feel like I matter.",
+"The way you make me feel like I belong.",
+"The way you make me feel like I’m enough.",
+"The way you make me feel chosen every day.",
+"The way you make me feel like your priority.",
+"The way you bring peace to my chaos.",
+"The way you turn my sadness into comfort.",
+"The way you turn my overthinking into calm.",
+"The way you turn my insecurities into confidence.",
+"The way you make me laugh when I least expect it.",
+"The way you make my worst days feel lighter.",
+"The way you turn ordinary days into memories.",
+"The way you make simple moments feel special.",
+"The way you make me excited about the future.",
+"The way you make me feel like everything will be okay.",
+"The way you make me trust love again.",
+"The way you make me believe in forever.",
+"The way you make me feel like I found my person.",
+"The way you make me feel at home no matter where we are.",
+"The way your presence fills every empty space in me.",
+"The way your absence makes me realize how much I love you.",
+"The way I miss you even when we just spoke.",
+"The way I think of you without trying.",
+"The way my heart reacts to your name.",
+"The way you live in my thoughts every day.",
+"The way you became my favorite habit.",
+"The way you became my safe place.",
+"The way you became my comfort person.",
+"The way you became my happiness.",
+"The way you became my peace.",
+"The way you became my home.",
+"The way you make everything feel lighter.",
+"The way you make my world feel softer.",
+"The way you make life feel meaningful.",
+"The way you make time feel slower when I’m with you.",
+"The way you make time feel faster when I’m with you.",
+"The way every moment with you feels important.",
+"The way you make memories out of nothing.",
+"The way you make ordinary conversations unforgettable.",
+"The way you make me feel like I’m your favorite person.",
+"The way you make me feel wanted without asking.",
+"The way you make me feel appreciated in small ways.",
+"The way you make me feel respected in everything.",
+"The way you make me feel loved without conditions.",
+"The way you stay gentle even when life is hard.",
+"The way you stay kind even when you’re tired.",
+"The way you stay real even when it’s difficult.",
+"The way you stay loyal no matter what.",
+"The way you stay honest even when it hurts.",
+"The way you stay strong when I need you.",
+"The way you stay soft when I need comfort.",
+"The way you stay patient with me always.",
+"The way you never let me feel alone.",
+"The way you always come back to me.",
+"The way you always choose us.",
+"The way you always make things right again.",
+"The way you always forgive and understand.",
+"The way you always listen to my heart.",
+"The way you always care about how I feel.",
+"The way you always make me smile again.",
+"The way you always find a way to fix things.",
+"The way you always show up for me.",
+"The way you always stay consistent.",
+"The way you always keep your word.",
+"The way you always try your best for us.",
+"The way you always make love feel safe.",
+"The way you always make love feel real.",
+"The way you always make love feel easy.",
+"The way you always make love feel warm.",
+"The way you always make love feel peaceful.",
+"The way you always make love feel exciting.",
+"The way you always make love feel steady.",
+"The way you always make love feel true.",
+"The way you always make me feel secure.",
+"The way you always make me feel protected.",
+"The way you always make me feel cared for.",
+"The way you always make me feel understood.",
+"The way you always make me feel valued.",
+"The way you always make me feel important.",
+"The way you always make me feel loved.",
+"The way you always make me feel seen.",
+"The way you always make me feel heard.",
+"The way you always make me feel enough.",
+"The way you always make me feel like I belong.",
+"The way you always make me feel like I matter.",
+"The way you always make me feel like I’m home.",
+"The way you always make me feel like I’m yours.",
+"The way your love feels calm and steady.",
+"The way your love never feels forced.",
+"The way your love never feels fake.",
+"The way your love never feels conditional.",
+"The way your love never fades in hard times.",
+"The way your love never makes me question us.",
+"The way your love feels like reassurance.",
+"The way your love feels like warmth in cold days.",
+"The way your love feels like light in darkness.",
+"The way your love feels like peace after chaos.",
+"The way your love feels like safety.",
+"The way your love feels like home.",
+"The way you make me smile for no reason.",
+"The way you make me laugh out loud unexpectedly.",
+"The way you make my heart race randomly.",
+"The way you make my thoughts drift to you.",
+"The way you make my day better instantly.",
+"The way you make my night feel peaceful.",
+"The way you make my mornings feel hopeful.",
+"The way you make my fears feel small.",
+"The way you make my dreams feel possible.",
+"The way you make my life feel brighter.",
+"The way you make my heart feel full.",
+"The way you make my soul feel calm.",
+"The way you make my world feel complete.",
+"The way you make everything feel right.",
+"The way you make everything feel better.",
+"The way you make everything feel meaningful.",
+"The way you make everything feel worth it.",
+"The way you make everything feel beautiful.",
+"The way you make everything feel alive.",
+"The way you make everything feel like love.",
+"The way your love heals me.",
+"The way your love strengthens me.",
+"The way your love supports me.",
+"The way your love uplifts me.",
+"The way your love carries me.",
+"The way your love protects me.",
+"The way your love inspires me.",
+"The way your love motivates me.",
+"The way your love comforts me.",
+"The way your love completes me.",
+"The way your eyes comfort me.",
+"The way your smile reassures me.",
+"The way your voice calms my fears.",
+"The way your words stay in my heart.",
+"The way your actions prove your love.",
+"The way your presence heals my sadness.",
+"The way your energy feels safe.",
+"The way your kindness touches my soul.",
+"The way your heart understands mine.",
+"The way your soul connects with mine.",
+"The way you make me feel lucky every day.",
+"The way you make me feel grateful every day.",
+"The way you make me feel lucky to love you.",
+"The way you make me feel proud to know you.",
+"The way you make me feel honored to be yours.",
+"The way you make me feel blessed to have you.",
+"The way you make me feel happier than I’ve ever been.",
+"The way you make me feel calmer than I’ve ever been.",
+"The way you make me feel stronger than I’ve ever been.",
+"The way you make me feel more alive than I’ve ever been.",
+"The way you make my heart choose you every time.",
+"The way you make my mind rest when I think of you.",
+"The way you make my soul recognize you.",
+"The way you make my life feel aligned.",
+"The way you make love feel like destiny.",
+"The way you make me believe in something bigger than us.",
+"The way you make me feel like I found what I was searching for.",
+"The way you make me feel like I never want to lose you.",
+"The way you make me feel like I will always choose you.",
+"The way you make everything feel like it was meant to be.",
+"The way you make even silence feel like love is present.",
+"The way you turn distance into something endurable.",
+"The way your love stays with me even when you’re not around.",
+"The way you feel close even when far away.",
+"The way your memory comforts me when I miss you.",
+"The way you make waiting feel meaningful.",
+"The way you make every reunion feel special.",
+"The way you make goodbyes feel difficult.",
+"The way you make every hello feel like homecoming.",
+"The way you make my heart recognize you instantly.",
+"The way you feel like the most familiar stranger I’ve ever known.",
+"The way you became part of my everyday thoughts.",
+"The way you became part of my identity.",
+"The way you became part of my happiness.",
+"The way you became part of my peace.",
+"The way you became part of my world.",
+"The way you make my life feel shared, not lonely.",
+"The way you make my future feel less scary.",
+"The way you make my past feel lighter.",
+"The way you make my present feel meaningful.",
+"The way you make every plan include you automatically.",
+"The way you feel like my constant in a changing world.",
+"The way your love feels steady even in uncertainty.",
+"The way your love feels like something I can rely on.",
+"The way your love feels like a promise kept daily.",
+"The way your love feels intentional.",
+"The way your love feels chosen.",
+"The way your love feels lived, not just spoken.",
+"The way your love feels present in everything you do.",
+"The way your love feels like action, not just words.",
+"The way you never make me question your intentions.",
+"The way you never make me feel insecure about us.",
+"The way you never let misunderstandings last too long.",
+"The way you always try to fix what is broken between us.",
+"The way you always protect what we have.",
+"The way you always choose understanding over pride.",
+"The way you always choose love over ego.",
+"The way you always choose us over anything else.",
+"The way you always try to make things right.",
+"The way you always stay patient in conflict.",
+"The way you always listen even when it’s hard.",
+"The way you always care even when we disagree.",
+"The way you always come back with love.",
+"The way you always reassure me without being asked.",
+"The way you always remind me we’re okay.",
+"The way you always make me feel safe again.",
+"The way you never let anger last longer than love.",
+"The way you turn arguments into understanding.",
+"The way you turn distance into learning.",
+"The way you turn confusion into clarity.",
+"The way you turn fear into comfort.",
+"The way you turn doubt into trust.",
+"The way you turn silence into connection.",
+"The way you make emotional spaces feel safe.",
+"The way you make vulnerability feel accepted.",
+"The way you make honesty feel easy.",
+"The way you make communication feel natural.",
+"The way you make love feel like teamwork.",
+"The way you make relationships feel like partnership.",
+"The way you make us feel like a real team.",
+"The way you never give up on us.",
+"The way you keep trying even when things get hard.",
+"The way you grow with me instead of away from me.",
+"The way you learn me over time.",
+"The way you adapt to my moods and emotions.",
+"The way you understand my patterns.",
+"The way you understand my triggers.",
+"The way you understand my needs.",
+"The way you understand my love language.",
+"The way you understand my heart.",
+"The way you make emotional safety feel real.",
+"The way you make trust feel natural.",
+"The way you make commitment feel peaceful.",
+"The way you make loyalty feel effortless.",
+"The way you make love feel consistent.",
+"The way you make connection feel deep.",
+"The way you make everything feel balanced.",
+"The way you make emotional honesty feel safe.",
+"The way you make vulnerability feel beautiful.",
+"The way you make me unafraid to love fully.",
+"The way you make me unafraid to be myself.",
+"The way you make me unafraid of being seen.",
+"The way you make me unafraid of being loved deeply.",
+"The way you make me unafraid of the future.",
+"The way you make me unafraid of loss when I’m with you.",
+"The way you make my emotional world stable.",
+"The way you give my heart a place to rest.",
+"The way you give my mind a place to breathe.",
+"The way you give my soul a place to feel safe.",
+"The way you give my life meaning beyond myself.",
+"The way your love feels like grounding.",
+"The way your love feels like direction.",
+"The way your love feels like clarity.",
+"The way your love feels like purpose.",
+"The way your love feels like home in human form.",
+"The way your love feels like something I can grow in.",
+"The way your love feels like something I can trust fully.",
+"The way your love feels like something I never want to lose.",
+"The way your love feels like something I always return to.",
+"The way your love feels like something that stays.",
+"The way you make me want to become better for myself.",
+"The way you make me want to become better for us.",
+"The way you inspire discipline in me.",
+"The way you inspire patience in me.",
+"The way you inspire emotional maturity in me.",
+"The way you inspire kindness in me.",
+"The way you inspire softness in me.",
+"The way you inspire strength in me.",
+"The way you inspire hope in me.",
+"The way you inspire love in me.",
+"The way you inspire consistency in me.",
+"The way you inspire peace in me.",
+"The way you make me believe in long-term love.",
+"The way you make me believe in real commitment.",
+"The way you make me believe in forever again.",
+"The way you make me believe in something lasting.",
+"The way you make me believe in us against everything.",
+"The way you make me believe love can be simple.",
+"The way you make me believe love can be safe.",
+"The way you make me believe love can be real.",
+"The way you make me believe love can be calm.",
+"The way you make me believe love can be strong.",
+"The way you make me believe love can survive anything.",
+"The way you make me believe I am worthy of love.",
+"The way you make me believe I am enough.",
+"The way you make me believe I am chosen.",
+"The way you make me believe I am valued.",
+"The way you make me believe I am loved deeply.",
+"The way you make me believe I am important.",
+"The way you make me believe I am safe with you.",
+"The way you make me believe I am home with you.",
+"The way you make me believe I am yours.",
+"The way you make me believe we are real.",
+"The way you make me believe we are meant.",
+"The way you make me believe we are forever.",
+"The way you make me believe in love stories again.",
+"The way you make me believe in happiness again.",
+"The way you make me believe in healing again.",
+"The way you make me believe in trust again.",
+"The way you make me believe in us every single day.",
+"The way your presence feels like reassurance itself.",
+"The way your silence still feels loving.",
+"The way your existence calms my nervous thoughts.",
+"The way your energy softens my emotional storms.",
+"The way your love anchors me.",
+"The way your love steadies me.",
+"The way your love holds me together.",
+"The way your love never breaks even when life does.",
+"The way your love feels like emotional shelter.",
+"The way your love feels like protection without control.",
+"The way you make me feel emotionally held.",
+"The way you make me feel deeply connected.",
+"The way you make me feel truly seen in my soul.",
+"The way you make me feel understood beyond words.",
+"The way you make me feel emotionally safe in every version of me.",
+"The way you make me feel like I can breathe fully.",
+"The way you make me feel like I can exist freely.",
+"The way you make me feel like I don’t have to hide.",
+"The way you make me feel like I can be real.",
+"The way you make me feel like I am accepted completely.",
+"The way you make my emotional world feel organized.",
+"The way you make my heart feel less chaotic.",
+"The way you make my thoughts feel calmer.",
+"The way you make my worries lose power.",
+"The way you make my fears feel smaller.",
+"The way you make my love feel stronger.",
+"The way you make my emotions feel safe.",
+"The way you make my life feel guided.",
+"The way you make my future feel held.",
+"The way you make my present feel enough.",
+"The way you make my past feel forgiven.",
+"The way you make my heart feel understood.",
+"The way you make my soul feel recognized.",
+"The way you make my life feel worth living fully.",
+"The way you make everything inside me feel softer.",
+"The way you make me want to love better.",
+"The way you make me want to love deeper.",
+"The way you make me want to love without fear.",
+"The way you make me want to stay.",
+"The way you make me want forever.",
+"The way you make love feel like home.",
+"The way you make my heart feel safe every day.",
+"The way you make my world feel complete.",
+"The way you make my life feel worth it.",
+"The way you make me feel chosen without asking.",
+"The way you make me feel loved without conditions.",
+"The way you make me feel like I belong with you.",
+"The way you make me feel like I’m exactly where I should be.",
+"The way you make me feel like I was meant for you.",
+"The way you make me feel like you were meant for me.",
+"The way you make me feel like nothing is missing when I have you.",
+"The way you make me feel emotionally complete.",
+"The way you make my heart calm just by existing.",
+"The way you make my soul feel understood.",
+"The way you make my mind feel at rest.",
+"The way you make my life feel softer.",
+"The way you make my days feel brighter.",
+"The way you make my nights feel peaceful.",
+"The way you make my mornings feel hopeful.",
+"The way you make my future feel less scary.",
+"The way you make my present feel meaningful.",
+"The way you make my past feel healed.",
+"The way you make everything feel worth it.",
+"The way you make everything feel okay.",
+"The way you make everything feel beautiful again.",
+"The way you make everything feel possible.",
+"The way you make everything feel like love.",
+"The way you make life feel like a story I want to keep living.",
+"The way you make me believe in forever with you.",
+"The way you make me believe in us no matter what.",
+"The way you make me believe in real love.",
+"The way you make me believe in lasting love.",
+"The way you make me believe in steady love.",
+"The way you make me believe in healthy love.",
+"The way you make me believe in peaceful love.",
+"The way you make me believe in unconditional love.",
+"The way you make me believe in growth together.",
+"The way you make me believe in healing together.",
+"The way you make me believe in building together.",
+"The way you make me believe in staying together.",
+"The way you make me believe in choosing each other daily.",
+"The way you make me believe in commitment that lasts.",
+"The way you make me believe in love that doesn’t fade.",
+"The way you make me believe in love that deepens.",
+"The way you make me believe in love that strengthens.",
+"The way you make me believe in love that grows.",
+"The way you make me believe in love that heals.",
+"The way you make me believe in love that protects.",
+"The way you make me believe in love that stays.",
+"The way you make me believe in love that is real.",
+"The way you make me feel like I’ve found my person.",
+"The way you make me feel like I don’t need to search anymore.",
+"The way you make me feel like I’ve arrived.",
+"The way you make me feel like I’m already home.",
+"The way you make me feel like I’m already loved enough.",
+"The way you make me feel like I can relax in love.",
+"The way you make me feel like I can trust fully.",
+"The way you make me feel like I can open my heart completely.",
+"The way you make me feel like I don’t have to hide anything.",
+"The way you make me feel like I can be fully myself.",
+"The way you make me feel like I am enough as I am.",
+"The way you make me feel like I don’t need to pretend.",
+"The way you make me feel like I don’t need to be perfect.",
+"The way you make me feel like I am accepted fully.",
+"The way you make me feel like I am understood deeply.",
+"The way you make me feel like I am valued always.",
+"The way you make me feel like I am respected always.",
+"The way you make me feel like I am cared for constantly.",
+"The way you make me feel like I am protected emotionally.",
+"The way you make me feel like I am never alone again.",
+"The way you make me feel like I can breathe freely in love.",
+"The way you make me feel like my heart is safe with you.",
+"The way you make me feel like my soul is safe with you.",
+"The way you make me feel like my emotions are safe with you.",
+"The way you make me feel like my love is safe with you.",
+"The way you make me feel like I’ve found my forever place.",
+"The way you make me feel like every day with you is a gift.",
+"The way you make me feel like every moment matters.",
+"The way you make me feel like every second with you is precious.",
+"The way you make me feel like time slows down when I’m with you.",
+"The way you make me feel like I never want to let go.",
+"The way you make me feel like I want to hold on forever.",
+"The way you make me feel like I never want to lose you.",
+"The way you make me feel like I would always choose you.",
+"The way you make me feel like I would always come back to you.",
+"The way you make me feel like you are my final choice.",
+"The way you make me feel like you are my safest decision.",
+"The way you make me feel like you are my best decision.",
+"The way you make me feel like you are my only answer.",
+"The way you make me feel like you are my peace.",
+"The way you make me feel like you are my joy.",
+"The way you make me feel like you are my comfort.",
+"The way you make me feel like you are my happiness.",
+"The way you make me feel like you are my heart.",
+"The way you make me feel like you are my everything.",
+"The way you make me feel like I found what I didn’t know I was missing.",
+"The way you make me feel like love finally makes sense.",
+"The way you make me feel like life finally makes sense.",
+"The way you make me feel like everything led me to you.",
+"The way you make me feel like all my paths were meant to meet you.",
+"The way you make me feel like you are my destiny.",
+"The way you make me feel like we are written for each other.",
+"The way you make me feel like our story is special.",
+"The way you make me feel like our love is rare.",
+"The way you make me feel like our love is unique.",
+"The way you make me feel like our love is unbreakable.",
+"The way you make me feel like our love is endless.",
+"The way you make me feel like our love is real beyond doubt.",
+"The way you make me feel like our love is worth everything.",
+"The way you make me feel like our love is worth protecting.",
+"The way you make me feel like our love is worth fighting for.",
+"The way you make me feel like our love is worth every effort.",
+"The way you make me feel like our love is worth every moment.",
+"The way you make me feel like our love is worth every memory.",
+"The way you make me feel like our love is worth every day.",
+"The way you make me feel like our love is worth forever.",
+"The way you make me feel like I never want a different life.",
+"The way you make me feel like I never want a different person.",
+"The way you make me feel like I never want a different love.",
+"The way you make me feel like I only want you.",
+"The way you make me feel like you are my always.",
+"The way you make me feel like you are my forever.",
+"The way you make me feel like you are my home forever.",
+"The way you make me feel like I am yours completely.",
+"The way you make me feel like you are mine completely.",
+"The way you make me feel like nothing else matters but us.",
+"The way you make me feel like the world fades when I’m with you.",
+"The way you make me feel like everything else is background noise.",
+"The way you make me feel like it’s just us in the world.",
+"The way you make me feel like love is simple with you.",
+"The way you make me feel like love is enough with you.",
+"The way you make me feel like love is everything with you.",
+"The way you make me feel like I am finally home in a person.",
+"The way you make me feel like I found my safe place in you.",
+"The way you make me feel like I can rest my heart in you.",
+"The way you make me feel like I can trust forever in you.",
+"The way you make me feel like I can build a life with you.",
+"The way you make me feel like I want every future with you.",
+"The way you make me feel like I would choose you in every lifetime.",
+"The way you make me feel like I would find you in every universe.",
+"The way you make me feel like you are my destiny across time.",
+"The way you make me feel like you are my once-in-a-lifetime.",
+"The way you make me feel like you are my greatest love story.",
+"The way you make me feel like you are my ending and my beginning.",
+"The way you make me feel like I am complete because of you.",
+"The way you make me feel like I am better because of you.",
+"The way you make me feel like I am stronger because of you.",
+"The way you make me feel like I am softer because of you.",
+"The way you make me feel like I am happier because of you.",
+"The way you make me feel like I am loved because of you.",
+"The way you make me feel like I am living because of you.",
+"The way you make me feel like I am me because of you.",
+"The way you make me feel like I want to keep choosing love with you.",
+"The way you make me feel like I never want to stop loving you.",
+"The way you make me feel like every second with you is enough.",
+"The way you make me feel like forever is still not enough time with you.",
+"The way you make me feel like I never want to imagine life without you.",
+"The way you make me feel like you are my greatest blessing.",
+"The way you make me feel like you are my answered prayer.",
+"The way you make me feel like you are my miracle.",
+"The way you make me feel like you are my heart’s greatest gift.",
+"The way you make me feel like you are my everything I prayed for.",
+"The way you make me feel like you are my safest love.",
+"The way you make me feel like you are my truest love.",
+"The way you make me feel like you are my deepest love.",
+"The way you make me feel like you are my purest love.",
+"The way you make me feel like you are my strongest love.",
+"The way you make me feel like you are my calmest love.",
+"The way you make me feel like you are my forever love.",
+"The way you make me feel like you are my always love.",
+"The way you make me feel like I will always find my way back to you.",
+"The way you make my heart beat faster every time I see you.",
+"The way you make me feel like I will always choose you in the end.",
+"The way you make me feel like I will always love you more each day.",
+"The way you make me feel like our story is still just beginning.",
+"The way you make me feel like loving you is the easiest truth I know.",
+"Simply because… you are you, and that is everything to me."
+        ];
+
+        // NAV DOTS GENERATION
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentSlide = i;
+                updateSlider();
+            });
+            dotsContainer.appendChild(dot);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            currentSlide = 0;
+            updateSlider();
+            startFallingHeartsSky();
+            drawCanvasWheel();
+            populateAllVaultDivisions();
+            setupScrollPropagationPrevention();
+            startSlideshowLoop();
+            requestWakeLock();
+
+            // AUDIO TRACK SETUP
+            setupAudioTrack('main-audio', 'main-progress-fill', 'main-current-time', 'main-total-duration');
+            setupAudioTrack('military-audio', 'military-progress-fill', 'military-current-time', 'military-total-duration');
+            setupAudioTrack('liverpool-audio', 'liverpool-progress-fill', 'liverpool-current-time', 'liverpool-total-duration');
+
+            // IDLE AUDIO LOOP WHEN SONG FINISHES
+            ['main-audio', 'military-audio', 'liverpool-audio'].forEach(id => {
+                const audio = document.getElementById(id);
+                if (audio) {
+                    audio.addEventListener('ended', () => {
+                        playBackgroundIdle();
+                    });
+                }
+            });
+        });
+
+        // SCREEN WAKE LOCK API
+        async function requestWakeLock() {
+            try {
+                if ('wakeLock' in navigator) {
+                    await navigator.wakeLock.request('screen');
+                }
+            } catch (err) {
+                console.log('Wake lock failed or unsupported', err);
+            }
+        }
+
+        // CONFETTI ENGINE
+        function fireTripleConfettiEngine() {
+            confetti({
+                particleCount: 50, angle: 60, spread: 60,
+                origin: { x: 0, y: 0.75 }, colors: ['#FFD700', '#FFF099', '#FF4D6D']
+            });
+
+            confetti({
+                particleCount: 50, angle: 120, spread: 60,
+                origin: { x: 1, y: 0.75 }, colors: ['#FFD700', '#38BDF8', '#FF4D6D']
+            });
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 70, spread: 100, origin: { x: 0.5, y: 0.3 },
+                    scalar: 1.2, shapes: ['star', 'circle'], colors: ['#FFD700', '#FFFFFF', '#FFA500']
+                });
+            }, 300);
+        }
+
+        function startConfettiLoop() {
+            if (!confettiIntervalTimer) {
+                fireTripleConfettiEngine();
+                confettiIntervalTimer = setInterval(fireTripleConfettiEngine, 6500);
+            }
+        }
+
+        function stopConfettiLoop() {
+            if (confettiIntervalTimer) {
+                clearInterval(confettiIntervalTimer);
+                confettiIntervalTimer = null;
+            }
+            if (typeof confetti.reset === 'function') confetti.reset();
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlider();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        }
+
+        function stopAllMainTracks() {
+            ['main-audio', 'military-audio', 'liverpool-audio'].forEach(id => {
+                const a = document.getElementById(id);
+                if (a && !a.paused) a.pause();
+            });
+            const btn1 = document.getElementById('main-audio-toggle-btn');
+            const btn2 = document.getElementById('slideshow-audio-toggle-btn');
+            if (btn1) btn1.innerHTML = '▶';
+            if (btn2) btn2.innerHTML = '▶';
+        }
+
+        function playBackgroundIdle() {
+            stopAllMainTracks();
+            const bgAudio = document.getElementById('background-idle-audio');
+            if (bgAudio && bgAudio.paused) {
+                bgAudio.play().catch(e => console.log('Idle audio blocked', e));
+            }
+        }
+
+        function stopBackgroundIdle() {
+            const bgAudio = document.getElementById('background-idle-audio');
+            if (bgAudio && !bgAudio.paused) bgAudio.pause();
+        }
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+            document.querySelectorAll('.dot').forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentSlide);
+            });
+
+            if (currentSlide === 0) {
+                startConfettiLoop();
+            } else {
+                stopConfettiLoop();
+            }
+
+            // AUDIO AUTOMATION ACCORDING TO PAGES
+            // Screen 6: Audio 1 (runningtoyou.mp3)
+            // Screen 8: Military (bb.mp3)
+            // Screen 15: Liverpool (ynwa.mp3)
+            // Screen 23: Slideshow (runningtoyou.mp3)
+            if ([5, 7, 14, 22].includes(currentSlide)) {
+                stopBackgroundIdle();
+            } else {
+                playBackgroundIdle();
+            }
+        }
+
+        function setupScrollPropagationPrevention() {
+            const scrollContainers = document.querySelectorAll('.glass-card, .reasons-scroll-box, .letter-body, .unique-pet-vault-grid, .chat-cards-container, .subpage-modal, .trivia-container');
+            scrollContainers.forEach(box => {
+                box.addEventListener('touchstart', e => { e.stopPropagation(); }, { passive: true });
+                box.addEventListener('touchmove', e => { e.stopPropagation(); }, { passive: true });
+                box.addEventListener('touchend', e => { e.stopPropagation(); }, { passive: true });
+            });
+        }
+
+        let touchStartX = 0; let touchEndX = 0;
+        let touchStartY = 0; let touchEndY = 0;
+
+        window.addEventListener('touchstart', e => { 
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        window.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            
+            const diffX = touchStartX - touchEndX;
+            const diffY = touchStartY - touchEndY;
+            const threshold = 50;
+
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
+                if (diffX > 0 && currentSlide < totalSlides - 1) { nextSlide(); } 
+                else if (diffX < 0 && currentSlide > 0) { prevSlide(); }
+            }
+        }, { passive: true });
+
+        window.addEventListener('keydown', e => {
+            if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && currentSlide < totalSlides - 1) { nextSlide(); }
+            else if ((e.key === 'ArrowLeft' || e.key === 'ArrowUp') && currentSlide > 0) { prevSlide(); }
+        });
+
+        // AUDIO TOGGLE ENGINE
+        function toggleAudio(audioId, btnId) {
+            const audioElem = document.getElementById(audioId);
+            const btn = document.getElementById(btnId);
+            
+            stopBackgroundIdle();
+
+            ['main-audio', 'military-audio', 'liverpool-audio'].forEach(id => {
+                if (id !== audioId) {
+                    const other = document.getElementById(id);
+                    if (other && !other.paused) other.pause();
+                }
+            });
+
+            if (audioElem.paused) {
+                audioElem.play().then(() => { 
+                    btn.innerHTML = '❚❚'; 
+                    if (audioId === 'main-audio') {
+                        const b1 = document.getElementById('main-audio-toggle-btn');
+                        const b2 = document.getElementById('slideshow-audio-toggle-btn');
+                        if (b1) b1.innerHTML = '❚❚';
+                        if (b2) b2.innerHTML = '❚❚';
+                    }
+                }).catch(e => console.log('Audio playback blocked', e));
+            } else {
+                audioElem.pause();
+                btn.innerHTML = '▶';
+                if (audioId === 'main-audio') {
+                    const b1 = document.getElementById('main-audio-toggle-btn');
+                    const b2 = document.getElementById('slideshow-audio-toggle-btn');
+                    if (b1) b1.innerHTML = '▶';
+                    if (b2) b2.innerHTML = '▶';
+                }
+                playBackgroundIdle();
+            }
+        }
+
+        function setupAudioTrack(audioId, fillId, currentId, totalId) {
+            const audioElem = document.getElementById(audioId);
+            const fill = document.getElementById(fillId);
+            const cur = document.getElementById(currentId);
+            const tot = document.getElementById(totalId);
+
+            if (!audioElem || !fill) return;
+
+            audioElem.addEventListener('timeupdate', () => {
+                if (audioElem.duration) {
+                    const pct = (audioElem.currentTime / audioElem.duration) * 100;
+                    fill.style.width = `${pct}%`;
+                    cur.textContent = formatTime(audioElem.currentTime);
+                    tot.textContent = formatTime(audioElem.duration);
+                }
+            });
+        }
+
+        function seekAudio(audioId, e) {
+            const audioElem = document.getElementById(audioId);
+            const bar = e.currentTarget;
+            if (audioElem && audioElem.duration) {
+                audioElem.currentTime = (e.offsetX / bar.clientWidth) * audioElem.duration;
+            }
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function startFallingHeartsSky() {
+            const container = document.getElementById('sky-hearts-container');
+            const hearts = ['❤️', '💖', '💕', '💗', '🤍', '✨'];
+            setInterval(() => {
+                if (container && currentSlide === 1) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('falling-heart');
+                    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 92 + '%';
+                    heart.style.animationDuration = (Math.random() * 2 + 3.5) + 's';
+                    container.appendChild(heart);
+                    setTimeout(() => { heart.remove(); }, 5000);
+                }
+            }, 450);
+        }
+
+        function populateVaultContainer(containerId, startNum, endNum) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = '';
+            
+            for (let i = startNum; i <= endNum; i++) {
+                const card = document.createElement('div');
+                card.className = 'reason-card';
+                const reasonText = fullReasonsList[i - 1] || "The endless love, peace, and warmth you bring into my life every single day.";
+                card.innerHTML = `<span>#${i}</span> ${reasonText}`;
+                container.appendChild(card);
+            }
+        }
+
+        function populateAllVaultDivisions() {
+            populateVaultContainer('vault-part-1-box', 1, 150);
+            populateVaultContainer('vault-part-2-box', 151, 300);
+            populateVaultContainer('vault-part-3-box', 301, 450);
+            populateVaultContainer('vault-part-4-box', 451, 600);
+            populateVaultContainer('vault-part-5-box', 601, 716);
+        }
+
+        // SPIN WHEEL ENGINE
+        const sectors = [
+            { label: "₦50", value: 50, color: "#1E293B" },
+            { label: "₦100", value: 100, color: "#0F172A" },
+            { label: "₦200", value: 200, color: "#1E293B" },
+            { label: "₦500", value: 500, color: "#0F172A" },
+            { label: "₦1,000", value: 1000, color: "#1E293B" },
+            { label: "₦5,000", value: 5000, color: "#FFD700", textColor: "#000" }
+        ];
+
+        let spinsRemaining = 3;
+        let totalWinnings = 0;
+        let currentWheelRotation = 0;
+
+        function drawCanvasWheel() {
+            const canvas = document.getElementById('wheel-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const numSectors = sectors.length;
+            const arc = (2 * Math.PI) / numSectors;
+            const radius = canvas.width / 2;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < numSectors; i++) {
+                const angle = i * arc;
+                ctx.beginPath();
+                ctx.fillStyle = sectors[i].color;
+                ctx.moveTo(radius, radius);
+                ctx.arc(radius, radius, radius, angle, angle + arc);
+                ctx.fill();
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = "rgba(255,215,0,0.4)";
+                ctx.stroke();
+
+                ctx.save();
+                ctx.translate(radius, radius);
+                ctx.rotate(angle + arc / 2);
+                ctx.textAlign = "right";
+                ctx.fillStyle = sectors[i].textColor || "#FFF";
+                ctx.font = "bold 15px Montserrat, sans-serif";
+                ctx.fillText(sectors[i].label, radius - 15, 5);
+                ctx.restore();
+            }
+        }
+
+        function spinWheelNextTurn() {
+            if (spinsRemaining <= 0) return;
+
+            const btn = document.getElementById('wheel-spin-btn');
+            const canvas = document.getElementById('wheel-canvas');
+            btn.disabled = true;
+
+            let targetSectorIndex = 0;
+
+            if (spinsRemaining === 3) {
+                targetSectorIndex = [0, 1, 2][Math.floor(Math.random() * 3)];
+            } else if (spinsRemaining === 2) {
+                targetSectorIndex = 5;
+            } else if (spinsRemaining === 1) {
+                targetSectorIndex = [0, 1, 2][Math.floor(Math.random() * 3)];
+            }
+
+            const numSectors = sectors.length;
+            const segAngle = 360 / numSectors;
+            const segmentCenterAngle = (targetSectorIndex * segAngle) + (segAngle / 2);
+            const targetAngleInWheel = 270 - segmentCenterAngle;
+            
+            const extraSpins = 360 * 5; 
+            const rotationNeeded = extraSpins + (targetAngleInWheel % 360) - (currentWheelRotation % 360);
+            currentWheelRotation += (rotationNeeded < extraSpins) ? rotationNeeded + 360 : rotationNeeded;
+
+            canvas.style.transform = `rotate(${currentWheelRotation}deg)`;
+
+            setTimeout(() => {
+                const wonItem = sectors[targetSectorIndex];
+                totalWinnings += wonItem.value;
+                spinsRemaining--;
+
+                document.getElementById('bankroll-display').innerHTML = `Total Cash Won: <strong>₦${totalWinnings.toLocaleString()}</strong>`;
+                
+                if (typeof confetti === 'function') {
+                    confetti({ particleCount: wonItem.value === 5000 ? 90 : 35, spread: 60, origin: { y: 0.6 } });
+                }
+
+                if (spinsRemaining > 0) {
+                    btn.disabled = false;
+                    btn.innerText = `SPIN THE WHEEL 🎁 (${spinsRemaining} LEFT)`;
+                } else {
+                    btn.disabled = true;
+                    btn.innerText = `SPINS COMPLETED! 🎉`;
+                    showFinalPrizeSummary();
+                }
+            }, 4900);
+        }
+
+        function showFinalPrizeSummary() {
+            const summaryBox = document.getElementById('prize-summary-container');
+            const finalTxt = document.getElementById('final-prize-text');
+            finalTxt.innerHTML = `Grand Cash Total: <strong>₦${totalWinnings.toLocaleString()}</strong>`;
+            summaryBox.classList.remove('hidden');
+        }
+
+        // SCREENSHOT CAPTURE
+        document.getElementById("saveScreenshot").addEventListener("click", async () => {
+            const scene = document.getElementById("screenshotScene");
+            const btn = document.getElementById("saveScreenshot");
+
+            try {
+                btn.innerText = "⏳ Generating Image...";
+                btn.disabled = true;
+
+                const canvas = await html2canvas(scene, { scale: 2, useCORS: true, allowTaint: true, backgroundColor: null, logging: false });
+                const image = canvas.toDataURL("image/png");
+                const link = document.createElement("a");
+                link.download = "Adedapo-Birthday-Winnings.png";
+                link.href = image;
+                link.click();
+
+                btn.innerText = "📸 Save Screenshot to Phone";
+                btn.disabled = false;
+            } catch (err) {
+                console.error("Screenshot capture failed:", err);
+                alert("Could not automatically save screenshot. Please take a manual screenshot of your screen!");
+                btn.innerText = "📸 Save Screenshot to Phone";
+                btn.disabled = false;
+            }
+        });
+
+// 20 QUESTIONS RONALDO TRIVIA BANK
+const ronaldoQuestions = [
+    { q: "What minute did Cristiano Ronaldo score in to complete his legendary hat-trick vs Spain in the 2018 World Cup?", opts: ["88th min", "85th min", "90th min", "82nd min"], ans: 0 },
+    { q: "Against which team did Ronaldo score his famous 2.38m (7ft 7in) overhead bicycle kick in 2018?", opts: ["Barcelona", "Atletico Madrid", "Juventus", "Bayern Munich"], ans: 2 },
+    { q: "Which shirt number did Ronaldo originally wear when he first played for Sporting CP?", opts: ["No. 28", "No. 7", "No. 17", "No. 11"], ans: 0 },
+    { q: "In what year did Ronaldo win his very first Ballon d'Or trophy?", opts: ["2007", "2008", "2009", "2010"], ans: 1 },
+    { q: "Who provided the assist for Ronaldo's iconic header against Chelsea in the 2008 UCL Final?", opts: ["Wayne Rooney", "Ryan Giggs", "Wes Brown", "Paul Scholes"], ans: 2 },
+    { q: "What is the name of Ronaldo's childhood hometown in Portugal?", opts: ["Lisbon", "Funchal, Madeira", "Porto", "Coimbra"], ans: 1 },
+    { q: "How many official career goals did Ronaldo reach to become the all-time top goalscorer in professional football history?", opts: ["800+", "850+", "900+", "950+"], ans: 2 },
+    { q: "Which club did Ronaldo join after leaving Real Madrid in 2018?", opts: ["Manchester United", "PSG", "Juventus", "Al Nassr"], ans: 2 },
+    { q: "How many UEFA Champions League titles has Ronaldo won in total?", opts: ["3", "4", "5", "6"], ans: 2 },
+    { q: "In which year did Ronaldo win the UEFA European Championship with Portugal?", opts: ["2012", "2016", "2020", "2004"], ans: 1 },
+    { q: "What is Ronaldo's iconic goal celebration called?", opts: ["The Dab", "Siuuu", "The Mask", "Glory"], ans: 1 },
+    { q: "How many international goals has Ronaldo scored for Portugal?", opts: ["100+", "110+", "120+", "130+"], ans: 3 },
+    { q: "What was Ronaldo's transfer fee when he moved from Man Utd to Real Madrid in 2009?", opts: ["£80 Million", "£100 Million", "£60 Million", "£90 Million"], ans: 0 },
+    { q: "Which manager signed Ronaldo to Manchester United in 2003?", opts: ["José Mourinho", "Sir Alex Ferguson", "Carlo Ancelotti", "Zinedine Zidane"], ans: 1 },
+    { q: "How many goals did Ronaldo score in a single Champions League season (2013-14 record)?", opts: ["15", "17", "19", "20"], ans: 1 },
+    { q: "Against which team did Ronaldo score his 800th career goal?", opts: ["Arsenal", "Norwich", "Tottenham", "Villarreal"], ans: 0 },
+    { q: "What position did Ronaldo play primarily during his early Manchester United days?", opts: ["Striker", "Right Winger", "Attacking Midfielder", "Second Striker"], ans: 1 },
+    { q: "Which international award did Ronaldo win in 2019 with Portugal?", opts: ["World Cup", "UEFA Nations League", "Confederations Cup", "Finalissima"], ans: 1 },
+    { q: "What color boots did Ronaldo famously wear in the 2008 Champions League Final?", opts: ["Black", "Gold", "Denim Blue", "Bright Pink"], ans: 2 },
+    { q: "How many total Golden Boots (European) has Ronaldo won?", opts: ["2", "3", "4", "5"], ans: 2 }
+];
+
+let activeSessionQuestions = [];
+let currentQIdx = 0;
+let triviaScore = 0;
+
+// Initialize Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const startBtn = document.getElementById('start-trivia-btn');
+    const restartBtn = document.getElementById('restart-trivia-btn');
+
+    if (startBtn) startBtn.addEventListener('click', startCR7Trivia);
+    if (restartBtn) restartBtn.addEventListener('click', startCR7Trivia);
+});
+
+function startCR7Trivia() {
+    // Pick 7 random questions from the 20 question pool
+    activeSessionQuestions = [...ronaldoQuestions].sort(() => 0.5 - Math.random()).slice(0, 7);
+    currentQIdx = 0;
+    triviaScore = 0;
+
+    // Switch Views
+    document.getElementById('trivia-start-view').style.display = 'none';
+    document.getElementById('trivia-result-view').style.display = 'none';
+    document.getElementById('trivia-modal-view').style.display = 'block';
+
+    renderCurrentTriviaQuestion();
+}
+
+function renderCurrentTriviaQuestion() {
+    const container = document.getElementById('cr7-trivia-box');
+    if (!container) return;
+
+    const qObj = activeSessionQuestions[currentQIdx];
+
+    // Update Banner Trackers
+    document.getElementById('trivia-score-banner').innerText = `Score: ${triviaScore} / 7`;
+    document.getElementById('question-tracker').innerText = `Question ${currentQIdx + 1} / 7`;
+
+    // Render Current Question
+    let optsHtml = '';
+    qObj.opts.forEach((opt, optIdx) => {
+        optsHtml += `<button class="trivia-opt-btn option-btn" onclick="answerTrivia(${optIdx}, this)">${opt}</button>`;
+    });
+
+    container.innerHTML = `
+        <div class="trivia-q-box">
+            <div class="trivia-q-title question-title" style="margin-bottom: 12px; font-weight: 700;">${currentQIdx + 1}. ${qObj.q}</div>
+            <div class="trivia-options options-group">${optsHtml}</div>
+        </div>
+    `;
+}
+
+function answerTrivia(optIdx, btn) {
+    const qBox = btn.closest('.trivia-q-box');
+    const allBtns = qBox.querySelectorAll('.trivia-opt-btn');
+    allBtns.forEach(b => b.disabled = true);
+
+    const currentQ = activeSessionQuestions[currentQIdx];
+
+    if (optIdx === currentQ.ans) {
+        btn.classList.add('correct');
+        triviaScore++;
+        if (typeof confetti === 'function') confetti({ particleCount: 25, spread: 40 });
+    } else {
+        btn.classList.add('wrong');
+        allBtns[currentQ.ans].classList.add('correct');
+    }
+
+    document.getElementById('trivia-score-banner').innerText = `Score: ${triviaScore} / 7`;
+
+    // Delay 1 second before showing next question or final summary
+    setTimeout(() => {
+        currentQIdx++;
+        if (currentQIdx < 7) {
+            renderCurrentTriviaQuestion();
+        } else {
+            showTriviaResults();
+        }
+    }, 1000);
+}
+
+function showTriviaResults() {
+    document.getElementById('trivia-modal-view').style.display = 'none';
+    document.getElementById('trivia-result-view').style.display = 'block';
+    document.getElementById('final-score-text').innerText = `Final Score: ${triviaScore} / 7`;
+
+    // Dynamic Badge based on score
+    const badge = document.getElementById('final-badge');
+    if (triviaScore === 7) {
+        badge.innerText = "GOAT CR7 Scholar 🐐⚡";
+    } else if (triviaScore >= 4) {
+        badge.innerText = "True Football Lover / Red Devil ⚽";
+    } else {
+        badge.innerText = "Casual Football Fan 👟";
+    }
+
+    if (triviaScore >= 5 && typeof confetti === 'function') {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+    }
+}
+
+        // SLIDESHOW LOOP ENGINE
+       let slideshowInterval = null;
+let currentImageIndex = 0;
+
+const audio = document.getElementById('slideshow-audio');
+const playBtn = document.getElementById('slideshow-toggle-btn');
+const progressBar = document.getElementById('audio-progress');
+const currentTimeEl = document.getElementById('current-time');
+const totalDurationEl = document.getElementById('total-duration');
+const sectionScreen = document.getElementById('screen-23');
+
+// 1. Audio Meta Loaded: Format duration & Setup Progress Max
+audio.addEventListener('loadedmetadata', () => {
+    progressBar.max = audio.duration;
+    totalDurationEl.textContent = formatTime(audio.duration);
+});
+
+// 2. Audio Time Update: Sync slider and current time string
+audio.addEventListener('timeupdate', () => {
+    if (!audio.duration) return;
+    progressBar.value = audio.currentTime;
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+    
+    // Update active slider gradient fill
+    const progressPercent = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.background = `linear-gradient(to right, var(--gold, #d4af37) ${progressPercent}%, rgba(255,255,255,0.2) ${progressPercent}%)`;
+});
+
+// 3. User Seek on Progress Bar
+progressBar.addEventListener('input', () => {
+    audio.currentTime = progressBar.value;
+});
+
+// Helper Function: Format seconds to M:SS
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// 4. Toggle Play/Pause Controls
+function toggleSlideshowAndAudio() {
+    if (audio.paused) {
+        audio.play().then(() => {
+            playBtn.textContent = '❚❚';
+            startSlideshowLoop();
+        }).catch(e => console.log("Playback interrupted: ", e));
+    } else {
+        pauseSlideshowAndAudio();
+    }
+}
+
+function pauseSlideshowAndAudio() {
+    audio.pause();
+    playBtn.textContent = '▶';
+    stopSlideshowLoop();
+}
+
+// 5. Slideshow Loop Engine
+function startSlideshowLoop() {
+    if (slideshowInterval) return;
+
+    const imgs = document.querySelectorAll('#final-slideshow-container .slideshow-img');
+    if (imgs.length === 0) return;
+
+    slideshowInterval = setInterval(() => {
+        imgs[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % imgs.length;
+        imgs[currentImageIndex].classList.add('active');
+    }, 3000);
+}
+
+function stopSlideshowLoop() {
+    if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+    }
+}
+
+// Reset loop back to fixed image #1 when audio finishes
+audio.addEventListener('ended', () => {
+    pauseSlideshowAndAudio();
+    resetToFirstImage();
+});
+
+function resetToFirstImage() {
+    const imgs = document.querySelectorAll('#final-slideshow-container .slideshow-img');
+    imgs.forEach(img => img.classList.remove('active'));
+    currentImageIndex = 0;
+    if (imgs[0]) imgs[0].classList.add('active');
+}
+
+// 6. AUTO-PAUSE WHEN NAVIGATING AWAY (Intersection Observer)
+if (sectionScreen && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Automatically pause audio and slideshow when the page/section leaves view
+            if (!entry.isIntersecting) {
+                pauseSlideshowAndAudio();
+            }
+        });
+    }, { threshold: 0.3 }); // Triggers when section is less than 30% visible
+
+    observer.observe(sectionScreen);
+}
+
+
+// Progress Bar & Duration Synchronization
+document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('slideshow-audio');
+    const progressBar = document.getElementById('audio-progress');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('total-duration');
+
+    if (!audio || !progressBar) return;
+
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    audio.addEventListener('loadedmetadata', () => {
+        progressBar.max = audio.duration;
+        durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+        progressBar.value = audio.currentTime;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    progressBar.addEventListener('input', () => {
+        audio.currentTime = progressBar.value;
+    });
+
+    audio.addEventListener('ended', () => {
+        const playBtn = document.getElementById('slideshow-toggle-btn');
+        if (playBtn) playBtn.textContent = '▶';
+        stopSlideshowLoop();
+    }); 
+});
+
+
+        // FIXED 7 ENVELOPES ORDER
+        const envelopePool = [
+            {
+                type: "cert",
+                title: "Best Boyfriend In The World",
+                image: "certificate1.jpg",
+                caption: "Official Award presented to Adedapo Emmanuel for being the most loving, gentle, and incredible partner on earth! ❤️👑"
+            },
+            {
+                type: "cert",
+                title: "Best Gamer I Know",
+                image: "certificate2.jpg",
+                caption: "Certified MVP! Awarded for unmatched gaming skills, high intelligence, and legendary playstyle! 🎮🔥"
+            },
+            {
+                type: "cert",
+                title: "Best Liverpool Fan",
+                image: "certificate3.jpg",
+                caption: "Anfield Royalty! Awarded to the most passionate Liverpool FC supporter ever. You'll Never Walk Alone! 🔴⚽"
+            },
+            {
+                type: "cert",
+                title: "Best Sergeant & Paramilitant",
+                image: "certificate4.jpg",
+                caption: "Honor & Excellence! Awarded for supreme discipline, leadership, and outstanding paramilitary dedication! 🎖️🫡"
+            },
+            {
+                type: "drawer",
+                title: "Random Card Drawer 🎴",
+                cards: [
+                    "Your smile is my absolute favorite sight in the world. 😊❤️",
+"You make me feel safer than anyone else ever could. 🛡️",
+"I am so proud of the man you are and the leader you are becoming. 🎖️",
+"You are my peaceful home in a noisy world. 🏡🤍",
+"I would choose you all over again in every lifetime! ♾️💖",
+"Thank you for being my constant support and best friend. 🫶🏼",
+"Your laugh is my favorite soundtrack—it brightens my entire day. 🎶✨",
+"No matter how hard things get, knowing I have you makes everything better. 🤝🖤",
+"You have this amazing way of making ordinary moments feel extraordinary. ✨🏡",
+"I love who I am when I’m with you—you bring out the absolute best in me. 🌟🤍",
+"Thank you for loving me so patiently and holding space for me through everything. 🕯️🤲",
+"You’re not just my partner; you are my favorite plot twist and my greatest adventure. 🗺️💫",
+"My heart feels completely at rest whenever I'm in your arms. 🫂💖",
+"I fall in love with your kindness, strength, and heart a little more every day. 📈❤️",
+"You are the best decision I have ever made. 🔒💍",
+"Whenever I look at you, I just know I’m right where I belong. 🎯🤍"
+
+                ]
+            },
+            {
+                type: "prayer",
+                title: "A Birthday Blessing & Prayer 🙏",
+                text: "My prayer for you, my love, is that God opens doors that no man can ever shut. May He grant you supernatural wisdom, divine health, unshakeable strength, and elevation in everything you put your hands to do. May our home continue to be blessed with joy, unity, and endless prosperity. Amen! 🙏✨"
+            },
+            {
+                type: "surprise",
+                title: "The Vow 💖",
+                text: "No matter how high you rise, no matter what challenges come our way, I promise to always stand by your side, cheer for you louder than anyone else, and love you unconditionally with all my heart and soul. Happy Birthday, my Forever King! 👑🎂"
+            }
+        ];
+
+        function clickEnvelopeSlot(slotIdx) {
+            const item = envelopePool[slotIdx] || envelopePool[0];
+            const modal = document.getElementById('envelope-subpage-modal');
+            const container = document.getElementById('subpage-body-container');
+            const badge = document.getElementById('subpage-title-badge');
+
+            badge.innerText = `ENVELOPE ${slotIdx + 1} UNLOCKED`;
+            container.innerHTML = '';
+
+            if (typeof confetti === 'function') confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 } });
+
+            if (item.type === "cert") {
+                container.innerHTML = `
+                    <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:1.1rem; margin-bottom:10px;">${item.title}</h3>
+                    <img src="${item.image}" alt="${item.title}" class="certificate-img-wrapper" onerror="this.src='https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=600&q=80'">
+                    <p style="font-size:0.78rem; color:#CBD5E1; margin-top:12px; line-height:1.5; font-weight:600;">${item.caption}</p>
+                `;
+            } else if (item.type === "drawer") {
+                container.innerHTML = `
+                    <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:1.1rem; margin-bottom:10px;">${item.title}</h3>
+                    <div id="card-drawer-display-box" style="background:rgba(255,255,255,0.08); border:1px solid var(--gold); border-radius:14px; padding:18px; margin:14px 0; font-size:0.9rem; color:#FFF; font-weight:700; min-height:90px; display:flex; align-items:center; justify-content:center;">
+                        Tap the button below to draw a card! 🎴
+                    </div>
+                    <button class="spin-btn" onclick="drawNextCardFromDrawer()">🎴 Draw A Random Card</button>
+                `;
+            } else if (item.type === "prayer") {
+                container.innerHTML = `
+                    <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:1.15rem; margin-bottom:10px;">${item.title}</h3>
+                    <div style="background:rgba(255,215,0,0.08); border:1px dashed var(--gold); border-radius:16px; padding:16px; margin:10px 0;">
+                        <p style="font-family:'Playfair Display',serif; font-size:0.9rem; color:#F8FAFC; line-height:1.7; font-style:italic;">
+                            "${item.text}"
+                        </p>
+                    </div>
+                `;
+            } else if (item.type === "surprise") {
+                container.innerHTML = `
+                    <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:1.15rem; margin-bottom:10px;">${item.title}</h3>
+                    <div style="background:rgba(229,9,20,0.12); border:1px solid rgba(255,215,0,0.4); border-radius:16px; padding:16px; margin:10px 0;">
+                        <p style="font-size:0.88rem; color:#F1F5F9; line-height:1.7; font-weight:600;">
+                            ${item.text}
+                        </p>
+                    </div>
+                `;
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function drawNextCardFromDrawer() {
+            const drawerObj = envelopePool.find(x => x.type === 'drawer');
+            if (!drawerObj) return;
+            const display = document.getElementById('card-drawer-display-box');
+            const randomText = drawerObj.cards[Math.floor(Math.random() * drawerObj.cards.length)];
+            
+            display.style.opacity = 0;
+            setTimeout(() => {
+                display.innerText = `"${randomText}"`;
+                display.style.opacity = 1;
+                if (typeof confetti === 'function') confetti({ particleCount: 30, spread: 50, origin: { y: 0.6 } });
+            }, 180);
+        }
+        // Function to close the modal and return to the main view
+          function closeEnvelopeSubpage() {
+    const modal = document.getElementById('envelope-subpage-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+}
+
+    </script>
+</body>
+</html>
